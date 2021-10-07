@@ -20,15 +20,5 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     
-    @IBAction func loginButton(_ sender: UIButton) {
-        guard let login = loginTextField.text else { return }
-        guard let pass = passwordTextField.text else { return }
-        
-        if login == "login" && pass == "password" {
-            print("Sick auth protection")
-        } else {
-            print("Wrong pass") //надо бы сделать вывод ошибки во вью
-        }
-    }
 }
 
