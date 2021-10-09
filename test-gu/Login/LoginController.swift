@@ -14,15 +14,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func logginButtonAction(_ sender: Any) {
-        guard let login = loginInput.text else { return }
-        guard let pass = passwordInput.text else { return }
         
-        
-        if login == "login" && pass == "password" {
-            print("Sick auth protection")
-        } else {
-            print("Wrong pass") //надо бы сделать вывод ошибки во вью
-        }
     }
     
     
@@ -49,14 +41,52 @@ class LoginController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-            super.viewWillDisappear(animated)
-            
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // Проверяем данные
+        let checkResult = checkUserData()
+        
+        // Если данные не верны, покажем ошибку
+        if !checkResult {
+            showLoginError()
         }
+        
+        // Вернем результат
+        return checkResult
+    }
     
     
-    // Когда клавиатура появляется
+    // Проверяем данные для авторизации
+    func checkUserData() -> Bool {
+        guard let login = loginInput.text,
+              let pass = passwordInput.text else { return false }
+        
+        
+        if login == "login" && pass == "password" {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // Отображение ошибки авторизации
+    func showLoginError() {
+        // Создаем контроллер
+        let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
+        // Создаем кнопку для UIAlertController
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        // Добавляем кнопку на UIAlertController
+        alter.addAction(action)
+        // Показываем UIAlertController
+        present(alter, animated: true, completion: nil)
+    }
+    
+    // Клавиатура появилась
     @objc func keyboardWasShown(notification: Notification) {
         
         // Получаем размер клавиатуры
@@ -78,10 +108,16 @@ class LoginController: UIViewController {
     
     // Прячем клаву, когда нажали на пустое место
     @objc func hideKeyboard() {
-            self.scrollView?.endEditing(true)
-        }
+        self.scrollView?.endEditing(true)
+    }
+    
+    
+}
 
-    
-    
+// MARK: UISCrollViewDelegate
+extension LoginController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0.0
+    }
 }
 
