@@ -262,7 +262,7 @@
                                 <connections>
                                     <outlet property="friendImage" destination="56i-z2-JdG" id="ayx-3E-FhU"/>
                                     <outlet property="friendName" destination="H6Q-oS-q1P" id="C2L-o7-q9l"/>
-                                    <segue destination="Vl1-Yw-szU" kind="show" trigger="accessoryAction" id="Moh-X0-IBJ"/>
+                                    <segue destination="Vl1-Yw-szU" kind="show" identifier="ShowFriend" id="Fut-tc-lps"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -321,18 +321,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-Ju-dAA">
-                                            <rect key="frame" x="23" y="37" width="105" height="105"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-Ju-dAA">
+                                            <rect key="frame" x="22.666666666666671" y="37" width="105" height="105"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="105" id="HcP-CL-cNf"/>
+                                                <constraint firstAttribute="width" constant="105" id="sFN-dx-HOO"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmH-a5-VNY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmH-a5-VNY">
                                             <rect key="frame" x="54" y="8" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qpd-Ju-dAA" secondAttribute="trailing" constant="22.333333333333329" id="0jL-CH-dOe"/>
+                                        <constraint firstItem="qpd-Ju-dAA" firstAttribute="top" secondItem="PmH-a5-VNY" secondAttribute="bottom" constant="8" symbolic="YES" id="4go-jK-o0Z"/>
+                                        <constraint firstItem="PmH-a5-VNY" firstAttribute="top" secondItem="z5h-RK-gX2" secondAttribute="top" constant="8" id="AHk-Bw-m7D"/>
+                                        <constraint firstAttribute="bottom" secondItem="qpd-Ju-dAA" secondAttribute="bottom" constant="8" id="D8Q-AZ-fRi"/>
+                                        <constraint firstItem="PmH-a5-VNY" firstAttribute="centerX" secondItem="z5h-RK-gX2" secondAttribute="centerX" id="Eai-1f-OAe"/>
+                                        <constraint firstItem="qpd-Ju-dAA" firstAttribute="leading" secondItem="z5h-RK-gX2" secondAttribute="leading" constant="22.666666666666671" id="y8z-kH-pd1"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="friendImage" destination="qpd-Ju-dAA" id="A2C-m3-s70"/>

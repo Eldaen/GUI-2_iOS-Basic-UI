@@ -82,14 +82,22 @@ class FriendsViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+     {
+         if segue.destination is FriendCollectionController {
+             guard let vc = segue.destination as? FriendCollectionController else {
+                 return
+             }
+             guard let indexPath = tableView.indexPathForSelectedRow?.row else {
+                 return
+                 
+             }
+                 
+             vc.name = friends[indexPath].name
+             vc.image = friends[indexPath].image
+         }
+     }
 
 }
