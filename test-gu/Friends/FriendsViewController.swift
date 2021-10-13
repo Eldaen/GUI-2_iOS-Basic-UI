@@ -8,6 +8,8 @@
 import UIKit
 
 class FriendsViewController: UITableViewController {
+    
+    var friends = FriendsLoader.iNeedFriends()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +25,27 @@ class FriendsViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return friends.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendsCell", for: indexPath) as? FriendsCell else {
+            return UITableViewCell()
+        }
 
-        // Configure the cell...
+        let name = friends[indexPath.row].name
+        let image = friends[indexPath.row].image
+        
+        cell.friendName.text = name
+        cell.friendImage.image = UIImage(named: image)
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
