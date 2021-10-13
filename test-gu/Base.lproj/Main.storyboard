@@ -166,7 +166,7 @@
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="fVx-40-HDa" customClass="MyGroupsCell" customModule="test_gu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyGroupsCell" rowHeight="66" id="fVx-40-HDa" customClass="MyGroupsCell" customModule="test_gu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fVx-40-HDa" id="8Oa-bw-Q97">
@@ -174,7 +174,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erf-pg-1RK">
-                                            <rect key="frame" x="20" y="22.666666666666671" width="42" height="21"/>
+                                            <rect key="frame" x="20" y="22.666666666666671" width="310" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -189,7 +189,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="KMp-EN-afv" firstAttribute="centerY" secondItem="8Oa-bw-Q97" secondAttribute="centerY" id="0f4-ey-oeZ"/>
-                                        <constraint firstItem="KMp-EN-afv" firstAttribute="leading" secondItem="Erf-pg-1RK" secondAttribute="trailing" constant="288" id="9EA-8F-QWo"/>
+                                        <constraint firstItem="KMp-EN-afv" firstAttribute="leading" secondItem="Erf-pg-1RK" secondAttribute="trailing" constant="20" id="9EA-8F-QWo"/>
                                         <constraint firstItem="Erf-pg-1RK" firstAttribute="leading" secondItem="8Oa-bw-Q97" secondAttribute="leadingMargin" id="FYj-mh-mmm"/>
                                         <constraint firstAttribute="trailing" secondItem="KMp-EN-afv" secondAttribute="trailing" constant="20" symbolic="YES" id="gTo-68-0Em"/>
                                         <constraint firstItem="Erf-pg-1RK" firstAttribute="centerY" secondItem="8Oa-bw-Q97" secondAttribute="centerY" id="w9K-d9-Szt"/>
@@ -211,14 +211,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="C3P-WW-PV7">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <segue destination="M1F-sm-e0Z" kind="show" id="zEf-jz-12a"/>
+                                <segue destination="M1F-sm-e0Z" kind="show" identifier="searchForGroups" id="zEf-jz-12a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vq1-EV-aCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4419" y="417"/>
+            <point key="canvasLocation" x="4418.6915887850464" y="416.63066954643631"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="L9q-aw-WH2">
@@ -389,7 +389,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="jL8-WG-UcR" customClass="SearchGroupsCell" customModule="test_gu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchGroupsCell" rowHeight="66" id="jL8-WG-UcR" customClass="SearchGroupsCell" customModule="test_gu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jL8-WG-UcR" id="lc1-hT-NuX">
@@ -397,7 +397,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prc-kX-Lr7">
-                                            <rect key="frame" x="20" y="22.666666666666671" width="42" height="21"/>
+                                            <rect key="frame" x="20" y="22.666666666666671" width="309" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -412,8 +412,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Prc-kX-Lr7" firstAttribute="leading" secondItem="lc1-hT-NuX" secondAttribute="leadingMargin" id="1Sa-oR-id7"/>
+                                        <constraint firstItem="TqW-Or-s2Z" firstAttribute="leading" secondItem="Prc-kX-Lr7" secondAttribute="trailing" constant="21" id="9s5-5C-7lp"/>
                                         <constraint firstItem="TqW-Or-s2Z" firstAttribute="centerY" secondItem="lc1-hT-NuX" secondAttribute="centerY" id="AvQ-ig-xU2"/>
-                                        <constraint firstItem="TqW-Or-s2Z" firstAttribute="leading" secondItem="Prc-kX-Lr7" secondAttribute="trailing" constant="288" id="WyK-z6-gIc"/>
                                         <constraint firstAttribute="trailing" secondItem="TqW-Or-s2Z" secondAttribute="trailing" constant="20" symbolic="YES" id="oNo-84-VT7"/>
                                         <constraint firstItem="Prc-kX-Lr7" firstAttribute="centerY" secondItem="lc1-hT-NuX" secondAttribute="centerY" id="wbg-Zl-rAK"/>
                                     </constraints>
@@ -421,6 +421,7 @@
                                 <connections>
                                     <outlet property="groupImage" destination="TqW-Or-s2Z" id="ohP-mY-8gR"/>
                                     <outlet property="groupName" destination="Prc-kX-Lr7" id="A3v-ev-iZC"/>
+                                    <segue destination="gpv-s1-bcV" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="8U3-rM-q5V"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -432,8 +433,9 @@
                     <navigationItem key="navigationItem" title="Поиск групп" id="OTZ-td-WIX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9h-Zh-PMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gpv-s1-bcV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5292" y="417"/>
+            <point key="canvasLocation" x="5289.2523364485978" y="416.63066954643631"/>
         </scene>
     </scenes>
     <resources>
