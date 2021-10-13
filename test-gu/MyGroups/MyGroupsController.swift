@@ -8,6 +8,8 @@
 import UIKit
 
 class MyGroupsController: UITableViewController {
+    
+    var myGroups = [(name: String, image: String)]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +25,29 @@ class MyGroupsController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return myGroups.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsCell", for: indexPath) as? MyGroupsCell else {
+            return UITableViewCell()
+        }
 
-        // Configure the cell...
+        let name = myGroups[indexPath.row].name
+        let image = myGroups[indexPath.row].image
+        
+        cell.groupName.text = name
+        cell.groupImage.image = UIImage(named: image)
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -49,17 +57,14 @@ class MyGroupsController: UITableViewController {
     }
     */
 
-    /*
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            myGroups.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -76,9 +81,31 @@ class MyGroupsController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
 
+    // MARK: - Navigation
+     
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+        // Проверяем идентификатор, чтобы убедиться, что это нужный переход
+        if segue.identifier == "addGroup" {
+            // Получаем ссылку на контроллер, с которого осуществлен переход
+            guard let searchGroupsController = segue.source as? SearchGroupsController else {
+                return
+            }
+            
+            // Получаем название группы + Картинку и кладём в myGroups для последующей отрисовки
+            if let indexPath = searchGroupsController.tableView.indexPathForSelectedRow {
+                let groupName = searchGroupsController.groups[indexPath.row].name
+                let groupImage = searchGroupsController.groups[indexPath.row].image
+                let newGroup = (name: groupName, image: groupImage)
+                
+                myGroups.append(newGroup)
+                tableView.reloadData()
+            }
+        }
+        
+    }
+
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
