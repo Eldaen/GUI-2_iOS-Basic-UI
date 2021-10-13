@@ -89,8 +89,7 @@ class FriendsViewController: UITableViewController {
                  
              }
                  
-             vc.name = friends[indexPath].name
-             vc.image = friends[indexPath].image
+             vc.friend = friends[indexPath]
          }
      }
 

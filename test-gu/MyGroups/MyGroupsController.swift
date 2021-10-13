@@ -9,7 +9,7 @@ import UIKit
 
 class MyGroupsController: UITableViewController {
     
-    var myGroups = [(name: String, image: String)]()
+    var myGroups = [Group]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,11 +94,9 @@ class MyGroupsController: UITableViewController {
             
             // Получаем название группы + Картинку и кладём в myGroups для последующей отрисовки
             if let indexPath = searchGroupsController.tableView.indexPathForSelectedRow {
-                let groupName = searchGroupsController.groups[indexPath.row].name
-                let groupImage = searchGroupsController.groups[indexPath.row].image
-                let newGroup = (name: groupName, image: groupImage)
+                let group = searchGroupsController.groups[indexPath.row]
                 
-                myGroups.append(newGroup)
+                myGroups.append(group)
                 tableView.reloadData()
             }
         }

@@ -9,8 +9,7 @@ import UIKit
 
 class FriendCollectionController: UICollectionViewController {
     
-    var name: String?
-    var image: String?
+    var friend: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +42,9 @@ class FriendCollectionController: UICollectionViewController {
             return UICollectionViewCell()
         }
         
-        // Развернём имя и картинку, вдруг что-то из этого не пришло или пришло пустое
-        if let cellImage = self.image {
-            cell.friendImage.image = UIImage(named: cellImage)
-        }
-        if let cellName = self.name {
-            cell.friendName.text = cellName
+        if let friendCell = friend {
+            cell.friendImage.image = UIImage(named: friendCell.image)
+            cell.friendName.text = friendCell.name
         }
     
         return cell
