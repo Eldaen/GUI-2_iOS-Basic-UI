@@ -373,13 +373,13 @@
         <!--Поиск групп-->
         <scene sceneID="Lg6-ew-w0J">
             <objects>
-                <tableViewController id="M1F-sm-e0Z" sceneMemberID="viewController">
+                <tableViewController id="M1F-sm-e0Z" customClass="SearchGroupsController" customModule="test_gu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UGP-jl-rzk">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="jL8-WG-UcR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="jL8-WG-UcR" customClass="SearchGroupsCell" customModule="test_gu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jL8-WG-UcR" id="lc1-hT-NuX">
@@ -408,6 +408,10 @@
                                         <constraint firstItem="Prc-kX-Lr7" firstAttribute="centerY" secondItem="lc1-hT-NuX" secondAttribute="centerY" id="wbg-Zl-rAK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupImage" destination="TqW-Or-s2Z" id="ohP-mY-8gR"/>
+                                    <outlet property="groupName" destination="Prc-kX-Lr7" id="A3v-ev-iZC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
