@@ -10,5 +10,5 @@ import Foundation
 // Делаем самые простые модели, т.к. они нам чисто показать данные, а потом можно их и переделать.
 struct Group {
     let name: String
-    let avatar: String
+    let image: String
 }

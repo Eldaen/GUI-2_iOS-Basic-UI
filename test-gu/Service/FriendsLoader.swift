@@ -9,11 +9,11 @@ import Foundation
 
 // Возвращаем какой-то массив данных, тут могла бы быть подгрузка из API
 class FriendsLoader {
-    static func iNeedFriends() -> [(name: String, image: String)] {
-        return [(name: "Vasia", image: "vasia"),
-                (name: "Petia", image: "petia"),
-                (name: "Dima", image: "dima"),
-                (name: "Misha", image: "misha"),
+    static func iNeedFriends() -> [User] {
+        return [User(name: "Vasia", image: "vasia"),
+                User(name: "Petia", image: "petia"),
+                User(name: "Dima", image: "dima"),
+                User(name: "Misha", image: "misha"),
         ]
     }
 }
