@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D050CCFB2716D89A0076D78E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFA2716D89A0076D78E /* FriendsViewController.swift */; };
+		D050CCFD2716D8AE0076D78E /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFC2716D8AE0076D78E /* FriendsCell.swift */; };
+		D050CD002716DE2A0076D78E /* FriendCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFF2716DE2A0076D78E /* FriendCollectionController.swift */; };
+		D050CD022716DE3B0076D78E /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD012716DE3B0076D78E /* FriendCollectionCell.swift */; };
 		D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C3270B147E00D0E12C /* AppDelegate.swift */; };
 		D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C5270B147E00D0E12C /* SceneDelegate.swift */; };
 		D06313C8270B147E00D0E12C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C7270B147E00D0E12C /* LoginController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D050CCFA2716D89A0076D78E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		D050CCFC2716D8AE0076D78E /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		D050CCFF2716DE2A0076D78E /* FriendCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionController.swift; sourceTree = "<group>"; };
+		D050CD012716DE3B0076D78E /* FriendCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
 		D06313C0270B147E00D0E12C /* test-gu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-gu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06313C3270B147E00D0E12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06313C5270B147E00D0E12C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D050CCF92716D87B0076D78E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D050CCFA2716D89A0076D78E /* FriendsViewController.swift */,
+				D050CCFC2716D8AE0076D78E /* FriendsCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		D050CCFE2716DDFF0076D78E /* FriendCollection */ = {
+			isa = PBXGroup;
+			children = (
+				D050CCFF2716DE2A0076D78E /* FriendCollectionController.swift */,
+				D050CD012716DE3B0076D78E /* FriendCollectionCell.swift */,
+			);
+			path = FriendCollection;
+			sourceTree = "<group>";
+		};
 		D06313B7270B147E00D0E12C = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +82,8 @@
 		D06313C2270B147E00D0E12C /* test-gu */ = {
 			isa = PBXGroup;
 			children = (
+				D050CCFE2716DDFF0076D78E /* FriendCollection */,
+				D050CCF92716D87B0076D78E /* Friends */,
 				D06313C3270B147E00D0E12C /* AppDelegate.swift */,
 				D06313C5270B147E00D0E12C /* SceneDelegate.swift */,
 				D08132142710719B00A280B0 /* Login */,
@@ -146,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D050CCFB2716D89A0076D78E /* FriendsViewController.swift in Sources */,
+				D050CD022716DE3B0076D78E /* FriendCollectionCell.swift in Sources */,
 				D06313C8270B147E00D0E12C /* LoginController.swift in Sources */,
+				D050CD002716DE2A0076D78E /* FriendCollectionController.swift in Sources */,
 				D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */,
 				D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */,
+				D050CCFD2716D8AE0076D78E /* FriendsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
