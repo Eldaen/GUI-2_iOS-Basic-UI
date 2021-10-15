@@ -9,7 +9,7 @@ import UIKit
 
 class MyGroupsController: UITableViewController {
     
-    var myGroups = [Group]()
+    var myGroups = [GroupModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

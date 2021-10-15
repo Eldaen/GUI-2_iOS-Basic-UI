@@ -15,10 +15,12 @@
 		D050CD072716DFA10076D78E /* MyGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD062716DFA10076D78E /* MyGroupsCell.swift */; };
 		D050CD0A2716E12B0076D78E /* SearchGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD092716E12B0076D78E /* SearchGroupsController.swift */; };
 		D050CD0C2716E13A0076D78E /* SearchGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD0B2716E13A0076D78E /* SearchGroupsCell.swift */; };
-		D050CD0F2716E1C50076D78E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD0E2716E1C50076D78E /* User.swift */; };
-		D050CD112716E1CF0076D78E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD102716E1CF0076D78E /* Group.swift */; };
+		D050CD0F2716E1C50076D78E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD0E2716E1C50076D78E /* UserModel.swift */; };
+		D050CD112716E1CF0076D78E /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD102716E1CF0076D78E /* GroupModel.swift */; };
 		D050CD142716E2990076D78E /* FriendsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD132716E2990076D78E /* FriendsLoader.swift */; };
 		D050CD162716E2A50076D78E /* GroupsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD152716E2A50076D78E /* GroupsLoader.swift */; };
+		D050CD1827197EB30076D78E /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD1727197EB30076D78E /* AvatarView.swift */; };
+		D050CD1A271990670076D78E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD19271990670076D78E /* TestViewController.swift */; };
 		D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C3270B147E00D0E12C /* AppDelegate.swift */; };
 		D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C5270B147E00D0E12C /* SceneDelegate.swift */; };
 		D06313C8270B147E00D0E12C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C7270B147E00D0E12C /* LoginController.swift */; };
@@ -36,10 +38,12 @@
 		D050CD062716DFA10076D78E /* MyGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsCell.swift; sourceTree = "<group>"; };
 		D050CD092716E12B0076D78E /* SearchGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsController.swift; sourceTree = "<group>"; };
 		D050CD0B2716E13A0076D78E /* SearchGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGroupsCell.swift; sourceTree = "<group>"; };
-		D050CD0E2716E1C50076D78E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D050CD102716E1CF0076D78E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		D050CD0E2716E1C50076D78E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		D050CD102716E1CF0076D78E /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		D050CD132716E2990076D78E /* FriendsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsLoader.swift; sourceTree = "<group>"; };
 		D050CD152716E2A50076D78E /* GroupsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsLoader.swift; sourceTree = "<group>"; };
+		D050CD1727197EB30076D78E /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		D050CD19271990670076D78E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D06313C0270B147E00D0E12C /* test-gu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-gu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06313C3270B147E00D0E12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06313C5270B147E00D0E12C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			children = (
 				D050CCFA2716D89A0076D78E /* FriendsViewController.swift */,
 				D050CCFC2716D8AE0076D78E /* FriendsCell.swift */,
+				D050CD1727197EB30076D78E /* AvatarView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -100,8 +105,8 @@
 		D050CD0D2716E1B30076D78E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D050CD0E2716E1C50076D78E /* User.swift */,
-				D050CD102716E1CF0076D78E /* Group.swift */,
+				D050CD0E2716E1C50076D78E /* UserModel.swift */,
+				D050CD102716E1CF0076D78E /* GroupModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 		D06313B7270B147E00D0E12C = {
 			isa = PBXGroup;
 			children = (
+				D050CD19271990670076D78E /* TestViewController.swift */,
 				D06313C2270B147E00D0E12C /* test-gu */,
 				D06313C1270B147E00D0E12C /* Products */,
 			);
@@ -232,16 +238,18 @@
 			files = (
 				D050CCFB2716D89A0076D78E /* FriendsViewController.swift in Sources */,
 				D050CD022716DE3B0076D78E /* FriendCollectionCell.swift in Sources */,
+				D050CD1A271990670076D78E /* TestViewController.swift in Sources */,
 				D050CD142716E2990076D78E /* FriendsLoader.swift in Sources */,
 				D06313C8270B147E00D0E12C /* LoginController.swift in Sources */,
 				D050CD002716DE2A0076D78E /* FriendCollectionController.swift in Sources */,
+				D050CD1827197EB30076D78E /* AvatarView.swift in Sources */,
 				D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */,
 				D050CD072716DFA10076D78E /* MyGroupsCell.swift in Sources */,
-				D050CD112716E1CF0076D78E /* Group.swift in Sources */,
+				D050CD112716E1CF0076D78E /* GroupModel.swift in Sources */,
 				D050CD052716DF890076D78E /* MyGroupsController.swift in Sources */,
 				D050CD162716E2A50076D78E /* GroupsLoader.swift in Sources */,
 				D050CD0A2716E12B0076D78E /* SearchGroupsController.swift in Sources */,
-				D050CD0F2716E1C50076D78E /* User.swift in Sources */,
+				D050CD0F2716E1C50076D78E /* UserModel.swift in Sources */,
 				D050CD0C2716E13A0076D78E /* SearchGroupsCell.swift in Sources */,
 				D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */,
 				D050CCFD2716D8AE0076D78E /* FriendsCell.swift in Sources */,

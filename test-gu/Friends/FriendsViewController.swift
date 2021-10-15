@@ -36,8 +36,8 @@ class FriendsViewController: UITableViewController {
         let image = friends[indexPath.row].image
         
         cell.friendName.text = name
-        cell.friendImage.image = UIImage(named: image)
-
+        cell.friendImage.image = UIImage(named: image)!
+        
         return cell
     }
 
