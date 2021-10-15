@@ -109,31 +109,6 @@
             </objects>
             <point key="canvasLocation" x="1818.2242990654204" y="81.641468682505405"/>
         </scene>
-        <!--Test View Controller-->
-        <scene sceneID="otz-Dv-xyh">
-            <objects>
-                <viewController id="C76-mA-4nh" customClass="TestViewController" customModule="test_gu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ezL-0h-uwL">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5t5-2C-I9V" customClass="AvatarView" customModule="test_gu" customModuleProvider="target">
-                                <rect key="frame" x="20" y="144" width="388" height="648"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Hha-PM-zRi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="testView" destination="5t5-2C-I9V" id="9Zf-c8-elR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kDc-Vl-Uje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1662.6168224299065" y="800.86393088552927"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dZ8-wa-WUm">
             <objects>
@@ -358,26 +333,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-Ju-dAA">
-                                            <rect key="frame" x="22.666666666666671" y="37" width="105" height="105"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="105" id="HcP-CL-cNf"/>
-                                                <constraint firstAttribute="width" constant="105" id="sFN-dx-HOO"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmH-a5-VNY">
                                             <rect key="frame" x="54" y="8" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="qpd-Ju-dAA">
+                                            <rect key="frame" x="22.666666666666671" y="37" width="105" height="105"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="105" id="HcP-CL-cNf"/>
+                                                <constraint firstAttribute="width" constant="105" id="sFN-dx-HOO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDp-w3-eR4" customClass="LikeControl" customModule="test_gu" customModuleProvider="target">
+                                            <rect key="frame" x="96" y="120" width="50" height="26"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="27x-UL-BKo"/>
+                                                <constraint firstAttribute="height" constant="26" id="BTR-8L-1rJ"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="qpd-Ju-dAA" secondAttribute="trailing" constant="22.333333333333329" id="0jL-CH-dOe"/>
                                         <constraint firstItem="qpd-Ju-dAA" firstAttribute="top" secondItem="PmH-a5-VNY" secondAttribute="bottom" constant="8" symbolic="YES" id="4go-jK-o0Z"/>
                                         <constraint firstItem="PmH-a5-VNY" firstAttribute="top" secondItem="z5h-RK-gX2" secondAttribute="top" constant="8" id="AHk-Bw-m7D"/>
                                         <constraint firstAttribute="bottom" secondItem="qpd-Ju-dAA" secondAttribute="bottom" constant="8" id="D8Q-AZ-fRi"/>
+                                        <constraint firstAttribute="bottom" secondItem="XDp-w3-eR4" secondAttribute="bottom" constant="4" id="Dm8-Ur-WbF"/>
                                         <constraint firstItem="PmH-a5-VNY" firstAttribute="centerX" secondItem="z5h-RK-gX2" secondAttribute="centerX" id="Eai-1f-OAe"/>
+                                        <constraint firstAttribute="trailing" secondItem="XDp-w3-eR4" secondAttribute="trailing" constant="4" id="uMO-Xk-BvV"/>
                                         <constraint firstItem="qpd-Ju-dAA" firstAttribute="leading" secondItem="z5h-RK-gX2" secondAttribute="leading" constant="22.666666666666671" id="y8z-kH-pd1"/>
                                     </constraints>
                                 </collectionViewCellContentView>
@@ -475,6 +460,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" width="128" height="128"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="labelColor">
