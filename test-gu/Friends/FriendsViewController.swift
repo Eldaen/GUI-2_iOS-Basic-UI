@@ -13,18 +13,27 @@ class FriendsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.sectionHeaderHeight = 40
+        self.tableView.backgroundColor = .orange
     }
+    
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        // Кол-во секций
+        return friends.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return friends.count
+        // Кол-во рядов в секции
+        return friends[section].data.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = friends[section]
+        
+        return String(section.key)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,9 +41,12 @@ class FriendsViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let name = friends[indexPath.row].name
-        let image = friends[indexPath.row].image
-        
+        let section = friends[indexPath.section]
+        let name = section.data[indexPath.row].name
+        let image = section.data[indexPath.row].image
+//        let name = friends[indexPath.row].name
+//        let image = friends[indexPath.row].image
+//
         cell.friendName.text = name
         cell.friendImage.image = UIImage(named: image)!
         
@@ -84,12 +96,15 @@ class FriendsViewController: UITableViewController {
              guard let vc = segue.destination as? FriendCollectionController else {
                  return
              }
-             guard let indexPath = tableView.indexPathForSelectedRow?.row else {
+             guard let indexPathSection = tableView.indexPathForSelectedRow?.section else {
                  return
-                 
              }
-                 
-             vc.friend = friends[indexPath]
+             guard let indexPathRow = tableView.indexPathForSelectedRow?.row else {
+                 return
+             }
+              
+             let section = friends[indexPathSection]
+             vc.friend = section.data[indexPathRow]
          }
      }
 
