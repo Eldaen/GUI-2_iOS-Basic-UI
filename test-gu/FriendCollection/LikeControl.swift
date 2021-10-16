@@ -58,12 +58,15 @@ class LikeControl: UIControl {
     
     @objc func onClick() {
         if likesCount == 0 {
-            let image = UIImage(systemName: "heart.fill")
-            likesImage.image = image
+            likesImage.image = UIImage(systemName: "heart.fill")
+            likesCount += 1
+        } else {
+            likesImage.image = UIImage(systemName: "heart")
+            likesCount -= 1
         }
         
-        likesCount += 1
         likesLabel.text = String(likesCount)
+        
     }
     
     // оно сюда не заходит, при текущем использовании
