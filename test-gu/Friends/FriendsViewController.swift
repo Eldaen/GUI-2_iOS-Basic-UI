@@ -10,26 +10,22 @@ import UIKit
 class FriendsViewController: UITableViewController {
     
     var friends = FriendsLoader.iNeedFriends()
+    var lettersOfNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.sectionHeaderHeight = 40
         self.tableView.backgroundColor = .orange
+        self.tableView.showsVerticalScrollIndicator = false
         
-        
-        let scrollControl = ScrollControl()
-        scrollControl.sections = friends
-        
-        self.view.addSubview(scrollControl)
-        
-        NSLayoutConstraint.activate([
-            scrollControl.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            scrollControl.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 4),
-                ])
-        
-        self.view.bringSubviewToFront(scrollControl) // может это и не надо, проверь
+        loadLetters()
     }
     
+    func loadLetters() {
+        for user in friends {
+            lettersOfNames.append(String(user.key))
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -62,6 +58,11 @@ class FriendsViewController: UITableViewController {
         cell.friendImage.image = UIImage(named: image)!
         
         return cell
+    }
+    
+    // Буквы для контрола справа
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return lettersOfNames
     }
 
     // MARK: - Navigation

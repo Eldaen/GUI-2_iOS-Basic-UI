@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hct-Ai-S2H">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hct-Ai-S2H">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="892"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вконтактик" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR4-5f-Hy6">
@@ -69,6 +69,7 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstItem="rm9-sq-OSc" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="0gP-Op-wmq"/>
+                                    <constraint firstItem="dR4-5f-Hy6" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="4ss-Ig-Sn7"/>
                                     <constraint firstItem="xEh-0V-I1L" firstAttribute="top" secondItem="Lcz-KY-qeB" secondAttribute="bottom" constant="30" id="5OQ-Kv-aCN"/>
                                     <constraint firstItem="Lcz-KY-qeB" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="5gB-mZ-yOh"/>
                                     <constraint firstAttribute="trailing" secondItem="dR4-5f-Hy6" secondAttribute="trailing" constant="186" id="6Dc-Un-fTG"/>
@@ -82,7 +83,6 @@
                                     <constraint firstItem="DVJ-DF-wxd" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="myF-U4-Xhr"/>
                                     <constraint firstItem="xEh-0V-I1L" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="pmo-SA-Wgs"/>
                                     <constraint firstItem="rm9-sq-OSc" firstAttribute="top" secondItem="MeL-Pv-Yfx" secondAttribute="bottom" constant="50" id="rIZ-ZD-dh5"/>
-                                    <constraint firstItem="dR4-5f-Hy6" firstAttribute="centerX" secondItem="hct-Ai-S2H" secondAttribute="centerX" id="u0W-Ht-CZ6"/>
                                     <constraint firstAttribute="bottom" secondItem="rm9-sq-OSc" secondAttribute="bottom" constant="253" id="uni-Bl-Zk7"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="3dr-0u-CTz"/>

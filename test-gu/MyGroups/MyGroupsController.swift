@@ -96,8 +96,11 @@ class MyGroupsController: UITableViewController {
             if let indexPath = searchGroupsController.tableView.indexPathForSelectedRow {
                 let group = searchGroupsController.groups[indexPath.row]
                 
-                myGroups.append(group)
-                tableView.reloadData()
+                // Если такой группы ещё нет, то добавляем
+                if !myGroups.contains(group) {
+                    myGroups.append(group)
+                    tableView.reloadData()
+                }
             }
         }
         
