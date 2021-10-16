@@ -14,9 +14,8 @@ class FriendsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.sectionHeaderHeight = 40
-        self.tableView.backgroundColor = .orange
         self.tableView.showsVerticalScrollIndicator = false
+        tableView.sectionHeaderTopPadding = 0
         
         loadLetters()
     }
@@ -63,6 +62,20 @@ class FriendsViewController: UITableViewController {
     // Буквы для контрола справа
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return lettersOfNames
+    }
+    
+    // настройка хедера ячеек и добавление букв в него
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView()
+        header.backgroundColor = .lightGray
+        
+        let leter: UILabel = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
+        leter.textColor = UIColor.black.withAlphaComponent(0.5)  // прозрачность только надписи
+        leter.text = lettersOfNames[section]
+        leter.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
+        header.addSubview(leter)
+        
+        return header
     }
 
     // MARK: - Navigation
