@@ -5,13 +5,10 @@
 //  Created by Денис Сизов on 13.10.2021.
 //
 
-import Foundation
-
-
-
 // Возвращаем какой-то массив данных, тут могла бы быть подгрузка из API
 class FriendsLoader {
     
+    // Можно было бы сразу отсортировать тестовые данные как надо, но я что-то решил сделать сотировалки, чтобы потом не переделывать, если будет подгрузка
     static var friends = [UserModel(name: "Vasia", image: "vasia"),
                           UserModel(name: "Petia", image: "petia"),
                           UserModel(name: "Dima", image: "dima"),

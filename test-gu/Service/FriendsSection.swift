@@ -5,7 +5,6 @@
 //  Created by Денис Сизов on 16.10.2021.
 //
 
-import Foundation
 
 struct FriendsSection: Comparable {
     var key: Character

@@ -5,7 +5,6 @@
 //  Created by Денис Сизов on 13.10.2021.
 //
 
-import Foundation
 
 // Возвращаем какой-то массив данных, тут могла бы быть подгрузка из API
 class GroupsLoader {
