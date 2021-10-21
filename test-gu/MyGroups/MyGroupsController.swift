@@ -42,8 +42,8 @@ class MyGroupsController: UITableViewController {
         let name = myGroups[indexPath.row].name
         let image = myGroups[indexPath.row].image
         
-        cell.groupName.text = name
-        cell.groupImage.image = UIImage(named: image)
+        //Конфигурируем и возвращаем готовую ячейку
+        cell.configure(name: name, image: UIImage(named: image))
 
         return cell
     }
@@ -84,6 +84,7 @@ class MyGroupsController: UITableViewController {
 
     // MARK: - Navigation
      
+    // Это метод, который принимает unwind seague из SearchGroups при клике на группу
     @IBAction func addGroup(segue: UIStoryboardSegue) {
         // Проверяем идентификатор, чтобы убедиться, что это нужный переход
         if segue.identifier == "addGroup" {
@@ -103,7 +104,6 @@ class MyGroupsController: UITableViewController {
                 }
             }
         }
-        
     }
 
     /*

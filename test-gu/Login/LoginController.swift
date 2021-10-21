@@ -111,6 +111,10 @@ class LoginController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
+    // экшн для кнопки logOut
+    @IBAction func logOutFromFriends(seague: UIStoryboardSegue) {
+    }
+    
     
 }
 

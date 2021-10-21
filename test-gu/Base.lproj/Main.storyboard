@@ -284,9 +284,16 @@
                             <outlet property="delegate" destination="DGO-pr-wtZ" id="2g8-1K-WyJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Друзья" id="8mW-Cy-aAk"/>
+                    <navigationItem key="navigationItem" title="Друзья" id="8mW-Cy-aAk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="iMG-h7-rr3">
+                            <connections>
+                                <segue destination="DCR-hb-Xlf" kind="unwind" unwindAction="logOutFromFriendsWithSeague:" id="rYU-zM-cv4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARk-EW-k3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="DCR-hb-Xlf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4418.6915887850464" y="-308.42332613390931"/>
         </scene>
@@ -393,6 +400,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eNq-mz-cM0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hBF-ra-p8d"/>
                     </connections>

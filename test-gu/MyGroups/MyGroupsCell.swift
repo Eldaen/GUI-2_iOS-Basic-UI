@@ -22,5 +22,10 @@ class MyGroupsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(name: String, image: UIImage?) {
+        groupName.text = name
+        groupImage.image = image
+    }
 
 }

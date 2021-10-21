@@ -76,7 +76,8 @@ class LikeControl: UIControl {
         addGestureRecognizer(tapGestureRecognizer)
     }
     
-    // Стандартный метод, надо бы потом разобраться что такое coder
+    // Стандартный метод, надо бы потом разобраться что такое coder.
+    // UPD, init? это failable initializer, используется, когда что-то может и не создаться и надо вернуть nil. При создании получим опциональный тип того что создавалось.
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupView()

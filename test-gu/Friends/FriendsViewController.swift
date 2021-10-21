@@ -52,9 +52,8 @@ class FriendsViewController: UITableViewController {
         let section = friends[indexPath.section]
         let name = section.data[indexPath.row].name
         let image = section.data[indexPath.row].image
-        
-        cell.friendName.text = name
-        cell.friendImage.image = UIImage(named: image)!
+        // конфигурируем и возвращаем готовую ячейку
+        cell.configure(name: name, image: UIImage(named: image)!)
         
         return cell
     }
@@ -66,12 +65,13 @@ class FriendsViewController: UITableViewController {
     
     // настройка хедера ячеек и добавление букв в него
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //Создаём кастомную вьюху заголовка
         let header = UIView()
-        header.backgroundColor = .lightGray
+        header.backgroundColor = .lightGray.withAlphaComponent(0.5)
         
         let leter: UILabel = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
         leter.textColor = UIColor.black.withAlphaComponent(0.5)  // прозрачность только надписи
-        leter.text = lettersOfNames[section]
+        leter.text = lettersOfNames[section] // В зависимости от номера секции - даём ей разные названия из массива имён секций
         leter.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         header.addSubview(leter)
         

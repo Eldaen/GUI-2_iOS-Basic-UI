@@ -22,5 +22,10 @@ class FriendsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(name: String, image: UIImage) {
+        friendName.text = name
+        friendImage.image = image
+    }
 
 }

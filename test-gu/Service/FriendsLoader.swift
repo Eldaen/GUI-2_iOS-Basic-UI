@@ -42,21 +42,17 @@ class FriendsLoader {
             guard let firstChar = user.name.first else {
                 continue
             }
-            //            if var arrKey = newArray[firstChar] {
-            //                arrKey.append(user)
-            //            } else {
+
             // Если секции с таким ключом нет, то создадим её
             guard var array = newArray[firstChar] else {
                 let newValue = [user]
                 newArray.updateValue(newValue, forKey: firstChar)
                 continue
             }
+            
             // Если секция нашлась, то добавим в массив ещё модель
             array.append(user)
             newArray.updateValue(array, forKey: firstChar)
-            
-            //newArray.updateValue(value: , forKey: firstChar)
-            //            }
         }
         return newArray
     }
