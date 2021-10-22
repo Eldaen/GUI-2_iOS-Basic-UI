@@ -7,7 +7,10 @@
 
 import UIKit
 
+/// Отображает список всех пользователей
 class FriendsViewController: UITableViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var friends = FriendsLoader.iNeedFriends()
     var lettersOfNames = [String]()
@@ -58,7 +61,7 @@ class FriendsViewController: UITableViewController {
         return cell
     }
     
-    // Буквы для контрола справа
+    /// Создаёт массив заголовков секций, по одной букве, с которой начинаются имена друзей
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return lettersOfNames
     }
