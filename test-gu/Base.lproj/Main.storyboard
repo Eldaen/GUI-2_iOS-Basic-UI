@@ -129,11 +129,58 @@
                     <connections>
                         <segue destination="ZKp-Ol-5xP" kind="relationship" relationship="viewControllers" id="cfO-wq-23f"/>
                         <segue destination="JQt-af-q0l" kind="relationship" relationship="viewControllers" id="bJx-Cz-MgS"/>
+                        <segue destination="vdA-TL-7cd" kind="relationship" relationship="viewControllers" id="I44-Pa-mND"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv5-wA-r6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2657" y="82"/>
+        </scene>
+        <!--Новости-->
+        <scene sceneID="CqD-sw-IGA">
+            <objects>
+                <navigationController id="vdA-TL-7cd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Новости" image="newspaper" catalog="system" id="EwH-Fh-vpa"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fHD-tR-yy1">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7hk-wV-eev" kind="relationship" relationship="rootViewController" id="qCv-g8-hje"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6CU-YA-cFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3537" y="1159"/>
+        </scene>
+        <!--Новости-->
+        <scene sceneID="PUF-PY-brK">
+            <objects>
+                <tableViewController title="Новости" id="7hk-wV-eev" customClass="NewsController" customModule="test_gu" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="8Pg-HQ-c4V" customClass="News">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="Xy9-2x-4vp" customClass="NewsTableViewCell" customModule="test_gu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xy9-2x-4vp" id="e4N-x7-CFa">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="7hk-wV-eev" id="fLQ-mP-qjr"/>
+                            <outlet property="delegate" destination="7hk-wV-eev" id="K4a-gY-b7X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lCF-0G-aFh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgU-MM-E5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4419" y="1159"/>
         </scene>
         <!--Группы-->
         <scene sceneID="FGi-Dz-JM1">
@@ -235,7 +282,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" id="OdR-8O-m4b" customClass="FriendsCell" customModule="test_gu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsCell" id="OdR-8O-m4b" customClass="FriendsTableViewCell" customModule="test_gu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88.666666030883789" width="428" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OdR-8O-m4b" id="Mne-6n-hXo">
@@ -487,6 +534,7 @@
     </scenes>
     <resources>
         <image name="heart" width="128" height="128"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="labelColor">

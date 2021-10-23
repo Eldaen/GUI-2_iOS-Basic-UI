@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendsCell: UITableViewCell {
+class FriendsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var friendImage: AvatarView!

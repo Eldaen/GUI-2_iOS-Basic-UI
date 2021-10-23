@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D050CCFB2716D89A0076D78E /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFA2716D89A0076D78E /* FriendsViewController.swift */; };
-		D050CCFD2716D8AE0076D78E /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFC2716D8AE0076D78E /* FriendsCell.swift */; };
+		D050CCFD2716D8AE0076D78E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFC2716D8AE0076D78E /* FriendsTableViewCell.swift */; };
 		D050CD002716DE2A0076D78E /* FriendCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CCFF2716DE2A0076D78E /* FriendCollectionController.swift */; };
 		D050CD022716DE3B0076D78E /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD012716DE3B0076D78E /* FriendCollectionCell.swift */; };
 		D050CD052716DF890076D78E /* MyGroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD042716DF890076D78E /* MyGroupsController.swift */; };
@@ -23,6 +23,9 @@
 		D050CD1C271A07BA0076D78E /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD1B271A07BA0076D78E /* LikeControl.swift */; };
 		D050CD1E271A2DD60076D78E /* FriendsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD1D271A2DD60076D78E /* FriendsSection.swift */; };
 		D050CD592721BD9E0076D78E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD582721BD9E0076D78E /* GradientView.swift */; };
+		D050CD5C27241BC60076D78E /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD5B27241BC60076D78E /* NewsController.swift */; };
+		D050CD6027241CEF0076D78E /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D050CD5F27241CEF0076D78E /* NewsCell.xib */; };
+		D050CD6227241E6D0076D78E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D050CD6127241E6D0076D78E /* NewsTableViewCell.swift */; };
 		D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C3270B147E00D0E12C /* AppDelegate.swift */; };
 		D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C5270B147E00D0E12C /* SceneDelegate.swift */; };
 		D06313C8270B147E00D0E12C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06313C7270B147E00D0E12C /* LoginController.swift */; };
@@ -33,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		D050CCFA2716D89A0076D78E /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		D050CCFC2716D8AE0076D78E /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		D050CCFC2716D8AE0076D78E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		D050CCFF2716DE2A0076D78E /* FriendCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionController.swift; sourceTree = "<group>"; };
 		D050CD012716DE3B0076D78E /* FriendCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
 		D050CD042716DF890076D78E /* MyGroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsController.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		D050CD1B271A07BA0076D78E /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		D050CD1D271A2DD60076D78E /* FriendsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSection.swift; sourceTree = "<group>"; };
 		D050CD582721BD9E0076D78E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		D050CD5B27241BC60076D78E /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		D050CD5F27241CEF0076D78E /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		D050CD6127241E6D0076D78E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		D06313C0270B147E00D0E12C /* test-gu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-gu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06313C3270B147E00D0E12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06313C5270B147E00D0E12C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				D050CCFA2716D89A0076D78E /* FriendsViewController.swift */,
-				D050CCFC2716D8AE0076D78E /* FriendsCell.swift */,
+				D050CCFC2716D8AE0076D78E /* FriendsTableViewCell.swift */,
 				D050CD1727197EB30076D78E /* AvatarView.swift */,
 				D050CD582721BD9E0076D78E /* GradientView.swift */,
 			);
@@ -127,6 +133,16 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		D050CD5A27241BAA0076D78E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D050CD5B27241BC60076D78E /* NewsController.swift */,
+				D050CD5F27241CEF0076D78E /* NewsCell.xib */,
+				D050CD6127241E6D0076D78E /* NewsTableViewCell.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		D06313B7270B147E00D0E12C = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +162,7 @@
 		D06313C2270B147E00D0E12C /* test-gu */ = {
 			isa = PBXGroup;
 			children = (
+				D050CD5A27241BAA0076D78E /* News */,
 				D050CD122716E2830076D78E /* Service */,
 				D050CD0D2716E1B30076D78E /* Model */,
 				D050CD082716E10F0076D78E /* Search Groups */,
@@ -231,6 +248,7 @@
 			files = (
 				D06313D0270B148000D0E12C /* LaunchScreen.storyboard in Resources */,
 				D06313CD270B148000D0E12C /* Assets.xcassets in Resources */,
+				D050CD6027241CEF0076D78E /* NewsCell.xib in Resources */,
 				D06313CB270B147E00D0E12C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,7 +268,9 @@
 				D050CD002716DE2A0076D78E /* FriendCollectionController.swift in Sources */,
 				D050CD1827197EB30076D78E /* AvatarView.swift in Sources */,
 				D06313C4270B147E00D0E12C /* AppDelegate.swift in Sources */,
+				D050CD5C27241BC60076D78E /* NewsController.swift in Sources */,
 				D050CD072716DFA10076D78E /* MyGroupsCell.swift in Sources */,
+				D050CD6227241E6D0076D78E /* NewsTableViewCell.swift in Sources */,
 				D050CD112716E1CF0076D78E /* GroupModel.swift in Sources */,
 				D050CD1E271A2DD60076D78E /* FriendsSection.swift in Sources */,
 				D050CD052716DF890076D78E /* MyGroupsController.swift in Sources */,
@@ -260,7 +280,7 @@
 				D050CD0C2716E13A0076D78E /* SearchGroupsCell.swift in Sources */,
 				D06313C6270B147E00D0E12C /* SceneDelegate.swift in Sources */,
 				D050CD1C271A07BA0076D78E /* LikeControl.swift in Sources */,
-				D050CCFD2716D8AE0076D78E /* FriendsCell.swift in Sources */,
+				D050CCFD2716D8AE0076D78E /* FriendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
