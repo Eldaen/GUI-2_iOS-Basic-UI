@@ -35,8 +35,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XPE-Hp-peI">
-                        <rect key="frame" x="4" y="72" width="406" height="113"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XPE-Hp-peI">
+                        <rect key="frame" x="4" y="72" width="406" height="112"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" systemColor="labelColor"/>
@@ -45,6 +45,7 @@
                     </textView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XPE-Hp-peI" secondAttribute="bottom" constant="4" id="2r3-E4-MKV"/>
                     <constraint firstItem="2zx-E3-B5s" firstAttribute="top" secondItem="UAZ-tV-naG" secondAttribute="top" constant="15" id="58p-Xt-fVN"/>
                     <constraint firstAttribute="trailing" secondItem="XPE-Hp-peI" secondAttribute="trailing" constant="4" id="AMd-3t-joj"/>
                     <constraint firstItem="kbZ-K9-7om" firstAttribute="top" secondItem="2zx-E3-B5s" secondAttribute="bottom" constant="3" id="E9u-Dr-feR"/>
@@ -59,12 +60,6 @@
                     <constraint firstItem="XPE-Hp-peI" firstAttribute="leading" secondItem="UAZ-tV-naG" secondAttribute="leading" constant="4" id="z0A-6Y-rta"/>
                 </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="postDate" destination="kbZ-K9-7om" id="VQK-Zy-dAq"/>
-                <outlet property="postText" destination="XPE-Hp-peI" id="e7e-v9-4JX"/>
-                <outlet property="userImage" destination="2Th-wL-pIm" id="eWi-bf-Gbb"/>
-                <outlet property="userName" destination="2zx-E3-B5s" id="rZQ-uz-xZk"/>
-            </connections>
             <point key="canvasLocation" x="143.47826086956522" y="61.607142857142854"/>
         </tableViewCell>
     </objects>
