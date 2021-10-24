@@ -36,7 +36,11 @@ class NewsTableViewCell: UITableViewCell {
 
 extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        newsImages.count
+        if newsImages.count > 4 {
+            return 4
+        } else {
+            return newsImages.count
+        }
     }
     
     
@@ -65,7 +69,6 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
             cell.newsImage.addSubview(newView)
             newView.addSubview(extraImagesCount)
-            
         }
         
         cell.configure(with: image)
@@ -75,7 +78,7 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     
     // задаём ячейкам размер в зависимости от кол-ва картинок, которые нужно разместить
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let frameCV = collectionView.frame
         var widthCell = frameCV.width
         var heightCell = frameCV.height
@@ -84,14 +87,17 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         case 2:
             widthCell = frameCV.width / 2
             heightCell = frameCV.height
+        case 3:
+            widthCell = frameCV.width / 3
+            heightCell = frameCV.height / 2
         case 4...:
             widthCell = frameCV.width / 2
             heightCell = frameCV.height / 2
         default:
             break
         }
-        
-        
+
+
         return CGSize(width: widthCell, height: heightCell)
     }
     
@@ -99,6 +105,12 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 
         return 0
+    }
+    
+    
+    // TODO: не знаю как почистить для реюза =(
+    override func prepareForReuse() {
+    
     }
 
 }

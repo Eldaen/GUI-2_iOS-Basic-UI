@@ -176,7 +176,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yah-W7-Xhw">
-                                            <rect key="frame" x="92" y="22" width="42" height="21"/>
+                                            <rect key="frame" x="92" y="22" width="320" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtN-aq-wsh">
-                                            <rect key="frame" x="24" y="83" width="388" height="114"/>
+                                            <rect key="frame" x="24" y="83.000000000000014" width="388" height="183.33333333333337"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" systemColor="labelColor"/>
@@ -196,12 +196,12 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-7O-roW">
-                                            <rect key="frame" x="4" y="205" width="420" height="420"/>
+                                            <rect key="frame" x="4" y="274.33333333333326" width="420" height="350.66666666666674"/>
                                             <color key="backgroundColor" systemColor="systemGray4Color"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="420" id="8bY-o0-J1z"/>
+                                                <constraint firstAttribute="height" constant="350.67000000000002" id="gjY-ap-NWn"/>
                                             </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nch-Kw-716">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ovY-F5-ohS">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -246,11 +246,11 @@
                                         <constraint firstItem="2mr-RS-eZi" firstAttribute="top" secondItem="e4N-x7-CFa" secondAttribute="topMargin" constant="4" id="HVe-uR-fyY"/>
                                         <constraint firstItem="FVH-7O-roW" firstAttribute="centerX" secondItem="e4N-x7-CFa" secondAttribute="centerX" id="Oj6-Ac-epR"/>
                                         <constraint firstItem="FVH-7O-roW" firstAttribute="top" secondItem="dtN-aq-wsh" secondAttribute="bottom" constant="8" id="Swm-cc-UBa"/>
-                                        <constraint firstAttribute="trailing" secondItem="yah-W7-Xhw" secondAttribute="trailing" constant="294" id="Yhw-ab-0G4"/>
+                                        <constraint firstAttribute="trailing" secondItem="yah-W7-Xhw" secondAttribute="trailing" constant="16" id="Yhw-ab-0G4"/>
                                         <constraint firstItem="2mr-RS-eZi" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leadingMargin" constant="4" id="ZZl-ko-HwU"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="top" secondItem="e4N-x7-CFa" secondAttribute="top" constant="22" id="aec-EU-gUH"/>
+                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" symbolic="YES" id="g0O-c9-NhK"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="gLg-1e-d2H"/>
-                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" id="gvk-8p-CCH"/>
                                         <constraint firstItem="FVH-7O-roW" firstAttribute="top" secondItem="dtN-aq-wsh" secondAttribute="bottom" constant="8" id="nEF-NW-NmX"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="sdX-Dz-0FR"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="top" secondItem="yah-W7-Xhw" secondAttribute="bottom" constant="8" symbolic="YES" id="wTa-xb-0us"/>
