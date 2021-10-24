@@ -8,8 +8,6 @@
 import UIKit
 
 class NewsController: UITableViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     let news = NewsLoader.iNeedNews()
     
@@ -43,6 +41,7 @@ class NewsController: UITableViewController {
 
         return cell
     }
+    
 }
 
 
