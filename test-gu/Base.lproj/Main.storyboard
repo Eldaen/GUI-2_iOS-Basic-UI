@@ -257,6 +257,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="collectionView" destination="FVH-7O-roW" id="qE5-RH-a8h"/>
                                     <outlet property="postDate" destination="qSm-4g-9jr" id="Jqd-0P-tQ7"/>
                                     <outlet property="postText" destination="dtN-aq-wsh" id="Ka7-Tt-4eR"/>
                                     <outlet property="userImage" destination="2mr-RS-eZi" id="Fax-CK-pS5"/>

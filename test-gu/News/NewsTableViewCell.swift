@@ -13,6 +13,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postText: UITextView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var newsImages: [String]!
     
 
@@ -38,27 +39,66 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         newsImages.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as? NewsCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        cell.configure(with: UIImage(named: newsImages[indexPath.row]) ?? UIImage())
+        let image = UIImage(named: newsImages[indexPath.row]) ?? UIImage()
+        
+        // если есть больше 4х картинок, то нужно показать что их больше
+        // для этого сделаем полупрозрачную вьюху, положем её поверх картинки и ещё текст добавим
+        if indexPath.row == 3 && newsImages.count > 4 {
+            let frameCV = collectionView.frame
+            let cellSize = CGRect(x: 0, y: 0, width: frameCV.width / 2,
+                              height: frameCV.height / 2)
+            
+            let newView = UIView(frame: cellSize)
+            newView.backgroundColor = .white.withAlphaComponent(0.8)
+            
+            let extraImagesCount = UILabel(frame: cellSize)
+            extraImagesCount.textAlignment = .center
+            extraImagesCount.text = "+" + String( newsImages.count - 3 )
+            extraImagesCount.font = UIFont.boldSystemFont(ofSize: 48.0)
+            extraImagesCount.textColor = .black
+
+            cell.newsImage.addSubview(newView)
+            newView.addSubview(extraImagesCount)
+            
+        }
+        
+        cell.configure(with: image)
         
         return cell
     }
     
+    // задаём ячейкам размер в зависимости от кол-ва картинок, которые нужно разместить
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let frameCV = collectionView.frame
         var widthCell = frameCV.width
         var heightCell = frameCV.height
         
-        if newsImages.count > 1 {
+        switch newsImages.count {
+        case 2:
             widthCell = frameCV.width / 2
             heightCell = frameCV.height
+        case 4...:
+            widthCell = frameCV.width / 2
+            heightCell = frameCV.height / 2
+        default:
+            break
         }
+        
         
         return CGSize(width: widthCell, height: heightCell)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+
+        return 0
+    }
+
 }

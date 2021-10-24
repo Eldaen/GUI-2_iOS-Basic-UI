@@ -9,6 +9,8 @@ import UIKit
 
 class NewsController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     let news = NewsLoader.iNeedNews()
     
     override func viewDidLoad() {
