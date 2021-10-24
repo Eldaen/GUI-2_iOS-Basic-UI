@@ -16,6 +16,9 @@ class NewsController: UITableViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        tableView.sectionHeaderTopPadding = 0
+        
+        tableView.reloadData()
     }
 
   
@@ -23,12 +26,12 @@ class NewsController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return news.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return news.count
+        return 1
     }
 
     // отрисовываем ячейки
@@ -37,11 +40,48 @@ class NewsController: UITableViewController {
             return UITableViewCell()
         }
                 // конфигурируем ячейку
-                cell.configure(with: news[indexPath.row])
+                cell.configure(with: news[indexPath.section])
 
         return cell
     }
     
+    // Добавляем футер с лайк контролом
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        //Создаём кастомную вьюху заголовка
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        
+        let likeControl = LikeControl(frame: CGRect(x: 5, y: 0, width: 50, height: 20))
+        likeControl.tintColor = .red
+        
+        let views = UILabel(frame: CGRect(x: footer.frame.size.width - 50, y: 0, width: 50, height: 20))
+        views.text = "42"
+        views.font = UIFont.systemFont(ofSize: 18)
+        
+        footer.addSubview(likeControl)
+        footer.addSubview(views)
+        
+        likeControl.leadingAnchor.constraint(equalTo: footer.leadingAnchor, constant: 10).isActive = true
+        likeControl.topAnchor.constraint(equalTo: footer.topAnchor, constant: 5).isActive = true
+        
+        views.topAnchor.constraint(equalTo: footer.topAnchor, constant: 5).isActive = true
+        views.trailingAnchor.constraint(equalTo: footer.trailingAnchor, constant: 5).isActive = true
+        
+        return footer
+    }
+    
+    // добавляем заголовок, чтобы визуально разграничить новости
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        //Создаём кастомную вьюху заголовка
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+        header.backgroundColor = .gray
+        
+        return header
+    }
+    
+    // правим высоту хидера со стандартной до нужной
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        5.0
+    }
 }
 
 

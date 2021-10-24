@@ -142,6 +142,7 @@
                 <navigationController id="vdA-TL-7cd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Новости" image="newspaper" catalog="system" id="EwH-Fh-vpa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fHD-tR-yy1">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -197,7 +198,6 @@
                                         </textView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-7O-roW">
                                             <rect key="frame" x="4" y="274.33333333333326" width="420" height="350.66666666666674"/>
-                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
                                             <collectionViewLayout key="collectionViewLayout" id="oIh-By-xqw" customClass="NewsCollectionViewLayout" customModule="test_gu" customModuleProvider="target"/>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCollectionViewCell" id="AKo-O4-sFP" customClass="NewsCollectionViewCell" customModule="test_gu" customModuleProvider="target">
@@ -241,10 +241,9 @@
                                         <constraint firstAttribute="trailing" secondItem="yah-W7-Xhw" secondAttribute="trailing" constant="16" id="Yhw-ab-0G4"/>
                                         <constraint firstItem="2mr-RS-eZi" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leadingMargin" constant="4" id="ZZl-ko-HwU"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="top" secondItem="e4N-x7-CFa" secondAttribute="top" constant="22" id="aec-EU-gUH"/>
-                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" symbolic="YES" id="g0O-c9-NhK"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="gLg-1e-d2H"/>
-                                        <constraint firstItem="FVH-7O-roW" firstAttribute="top" secondItem="dtN-aq-wsh" secondAttribute="bottom" constant="8" id="nEF-NW-NmX"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="sdX-Dz-0FR"/>
+                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" symbolic="YES" id="v5Y-2c-i8g"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="top" secondItem="yah-W7-Xhw" secondAttribute="bottom" constant="8" symbolic="YES" id="wTa-xb-0us"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -262,7 +261,7 @@
                             <outlet property="delegate" destination="7hk-wV-eev" id="K4a-gY-b7X"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lCF-0G-aFh"/>
+                    <navigationItem key="navigationItem" title="Новости" id="ith-iH-5xw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgU-MM-E5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,6 +447,7 @@
                         <imageReference key="selectedImage" image="person" catalog="system" symbolScale="medium"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Nf-30-oas">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -627,9 +627,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -27,10 +27,12 @@ class NewsCollectionViewLayout: UICollectionViewLayout {
     private var totalCellsHeight: CGFloat = 420
     
     func setConstraintForCollectionView() {
-        collectionView?.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView?.addConstraint(NSLayoutConstraint(
-            item: collectionView ?? UICollectionView(),
+        guard let collectionView = self.collectionView else { return }
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.addConstraint(NSLayoutConstraint(
+            item: collectionView,
             attribute: .height,
             relatedBy: .equal,
             toItem: nil,

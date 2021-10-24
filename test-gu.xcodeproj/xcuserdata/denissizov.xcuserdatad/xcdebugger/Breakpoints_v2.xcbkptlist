@@ -268,8 +268,8 @@
             filePath = "test-gu/News/NewsTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "collectionView(_:layout:minimumInteritemSpacingForSectionAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -284,8 +284,8 @@
             filePath = "test-gu/News/NewsCollectionViewLayout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "NewsCollectionViewLayout"
             landmarkType = "3">
          </BreakpointContent>
@@ -300,8 +300,8 @@
             filePath = "test-gu/News/NewsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

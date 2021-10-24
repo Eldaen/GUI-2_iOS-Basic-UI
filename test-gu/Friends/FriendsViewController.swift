@@ -146,11 +146,10 @@ extension FriendsViewController: UISearchBarDelegate {
                             searchedSection.data = [friend]
                             filteredData.append(searchedSection)
                         }
-                        
                     }
                 }
             }
-
+            
         }
         //обновляем данные
         self.tableView.reloadData()

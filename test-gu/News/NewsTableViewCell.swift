@@ -14,7 +14,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
-    var newsImages: [String]!
+    var newsImages: [String] = []
     
 
     
@@ -75,31 +75,6 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         
         return cell
     }
-    
-    // задаём ячейкам размер в зависимости от кол-ва картинок, которые нужно разместить
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let frameCV = collectionView.frame
-//        var widthCell = frameCV.width
-//        var heightCell = frameCV.height
-//
-//        switch newsImages.count {
-//        case 2:
-//            widthCell = frameCV.width / 2
-//            heightCell = frameCV.height
-//        case 3:
-//            widthCell = frameCV.width / 3
-//            heightCell = frameCV.height / 2
-//        case 4...:
-//            widthCell = frameCV.width / 2
-//            heightCell = frameCV.height / 2
-//        default:
-//            break
-//        }
-//
-//
-//        return CGSize(width: widthCell, height: heightCell)
-//    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
