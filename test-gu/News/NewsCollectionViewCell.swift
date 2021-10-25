@@ -14,12 +14,5 @@ class NewsCollectionViewCell: UICollectionViewCell {
     func configure(with image: UIImage) {
         newsImage.image = image
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        //hide or reset anything you want hereafter, for example
-        newsImage.image = nil
-    }
-    
-    
+
 }

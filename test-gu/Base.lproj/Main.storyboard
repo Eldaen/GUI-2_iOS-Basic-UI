@@ -197,7 +197,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FVH-7O-roW">
-                                            <rect key="frame" x="4" y="274.33333333333326" width="420" height="350.66666666666674"/>
+                                            <rect key="frame" x="0.0" y="274.33333333333326" width="428" height="350.66666666666674"/>
                                             <collectionViewLayout key="collectionViewLayout" id="oIh-By-xqw" customClass="NewsCollectionViewLayout" customModule="test_gu" customModuleProvider="target"/>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCollectionViewCell" id="AKo-O4-sFP" customClass="NewsCollectionViewCell" customModule="test_gu" customModuleProvider="target">
@@ -230,20 +230,19 @@
                                         </collectionView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="FVH-7O-roW" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leading" id="2dg-wi-juN"/>
                                         <constraint firstItem="dtN-aq-wsh" firstAttribute="trailing" secondItem="e4N-x7-CFa" secondAttribute="trailingMargin" constant="4" id="2e6-h3-udQ"/>
-                                        <constraint firstItem="FVH-7O-roW" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leading" constant="4" id="4Iz-H6-I3m"/>
+                                        <constraint firstItem="FVH-7O-roW" firstAttribute="top" secondItem="dtN-aq-wsh" secondAttribute="bottom" constant="8" id="6Q5-95-xoZ"/>
                                         <constraint firstItem="dtN-aq-wsh" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leadingMargin" constant="4" id="AGH-b4-fF7"/>
                                         <constraint firstItem="dtN-aq-wsh" firstAttribute="top" secondItem="2mr-RS-eZi" secondAttribute="bottom" constant="8" symbolic="YES" id="Fko-KN-bdf"/>
-                                        <constraint firstAttribute="trailing" secondItem="FVH-7O-roW" secondAttribute="trailing" constant="4" id="GBD-wY-LuV"/>
                                         <constraint firstItem="2mr-RS-eZi" firstAttribute="top" secondItem="e4N-x7-CFa" secondAttribute="topMargin" constant="4" id="HVe-uR-fyY"/>
-                                        <constraint firstItem="FVH-7O-roW" firstAttribute="centerX" secondItem="e4N-x7-CFa" secondAttribute="centerX" id="Oj6-Ac-epR"/>
-                                        <constraint firstItem="FVH-7O-roW" firstAttribute="top" secondItem="dtN-aq-wsh" secondAttribute="bottom" constant="8" id="Swm-cc-UBa"/>
+                                        <constraint firstAttribute="trailing" secondItem="FVH-7O-roW" secondAttribute="trailing" id="UHw-ws-Gge"/>
+                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" symbolic="YES" id="Ya4-ex-eng"/>
                                         <constraint firstAttribute="trailing" secondItem="yah-W7-Xhw" secondAttribute="trailing" constant="16" id="Yhw-ab-0G4"/>
                                         <constraint firstItem="2mr-RS-eZi" firstAttribute="leading" secondItem="e4N-x7-CFa" secondAttribute="leadingMargin" constant="4" id="ZZl-ko-HwU"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="top" secondItem="e4N-x7-CFa" secondAttribute="top" constant="22" id="aec-EU-gUH"/>
                                         <constraint firstItem="yah-W7-Xhw" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="gLg-1e-d2H"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="leading" secondItem="2mr-RS-eZi" secondAttribute="trailing" constant="8" symbolic="YES" id="sdX-Dz-0FR"/>
-                                        <constraint firstAttribute="bottom" secondItem="FVH-7O-roW" secondAttribute="bottom" constant="20" symbolic="YES" id="v5Y-2c-i8g"/>
                                         <constraint firstItem="qSm-4g-9jr" firstAttribute="top" secondItem="yah-W7-Xhw" secondAttribute="bottom" constant="8" symbolic="YES" id="wTa-xb-0us"/>
                                     </constraints>
                                 </tableViewCellContentView>

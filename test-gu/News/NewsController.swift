@@ -20,28 +20,28 @@ class NewsController: UITableViewController {
         
         tableView.reloadData()
     }
-
-  
+    
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return news.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
+    
     // отрисовываем ячейки
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell else {
             return UITableViewCell()
         }
-                // конфигурируем ячейку
-                cell.configure(with: news[indexPath.section])
-
+        // конфигурируем ячейку
+        cell.configure(with: news[indexPath.section])
+        
         return cell
     }
     
@@ -59,12 +59,6 @@ class NewsController: UITableViewController {
         
         footer.addSubview(likeControl)
         footer.addSubview(views)
-        
-        likeControl.leadingAnchor.constraint(equalTo: footer.leadingAnchor, constant: 10).isActive = true
-        likeControl.topAnchor.constraint(equalTo: footer.topAnchor, constant: 5).isActive = true
-        
-        views.topAnchor.constraint(equalTo: footer.topAnchor, constant: 5).isActive = true
-        views.trailingAnchor.constraint(equalTo: footer.trailingAnchor, constant: 5).isActive = true
         
         return footer
     }

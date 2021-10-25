@@ -102,5 +102,5 @@ class NewsCollectionViewLayout: UICollectionViewLayout {
         return cacheAttributes[indexPath]
     }
     
-
+    
 }
