@@ -44,7 +44,11 @@ class NewsCollectionViewLayout: UICollectionViewLayout {
 
             let isBigCell = (index + 1) % (self.columnsCount + 1) == 0
 
+            // обрабатываем, как у нас будут лежать картинки
+            // если 3 картинки, то механизм большая - маленькая, если 4 - по 2 в ряд, если одна - на всю сollection view
             if isBigCell && itemsCount != 4 {
+                // в attributes.frame мы передаём то, как по факту будет выглядеть ячейка, т.е. мы всем сами управляем
+                // высота коллекции должна быть задана в сториборде, а ячейки можно наделать любые
                 attributes.frame = CGRect(x: 0, y: lastY,
                                           width: bigCellWidth, height: self.cellHeight)
 
@@ -65,6 +69,7 @@ class NewsCollectionViewLayout: UICollectionViewLayout {
                 }
             }
 
+            // кладём в массив данные о положениях и размерах всех наших ячеек
             cacheAttributes[indexPath] = attributes
         }
         self.totalCellsHeight = lastY

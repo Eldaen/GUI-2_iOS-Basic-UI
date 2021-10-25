@@ -57,6 +57,7 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             return UICollectionViewCell()
         }
         
+        // TODO: надо это куда-то в модель перенести
         // если есть больше 4х картинок, то нужно показать что их больше
         // для этого сделаем полупрозрачную вьюху, положем её поверх картинки и ещё текст добавим
 //        if indexPath.row == 3 && collection.count > 4 {
@@ -77,6 +78,7 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 //            newView.addSubview(extraImagesCount)
 //        }
         
+        // находим нужную модель ячейки коллекции в массиве collection и потом в нашу новую ячейку коллекции передаэм готовую картинку
         let collectionCell = collection[indexPath.row]
         cell.configure(with: collectionCell.image)
         

@@ -14,8 +14,10 @@ class NewsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // динамический размер ячейки, но может это и не надо
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 600
+        // чтобы дырки не было между ячейками
         tableView.sectionHeaderTopPadding = 0
         
         tableView.reloadData()
@@ -26,7 +28,7 @@ class NewsController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return news.count
+        return news.count // одна секция - одна новость
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
