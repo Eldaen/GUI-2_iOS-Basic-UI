@@ -66,7 +66,7 @@ extension NewsTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 //            
 //            let newView = UIView(frame: cellSize)
 //            newView.backgroundColor = .white.withAlphaComponent(0.8)
-//            
+//
 //            let extraImagesCount = UILabel(frame: cellSize)
 //            extraImagesCount.textAlignment = .center
 //            extraImagesCount.text = "+" + String( collection.count - 3 )
