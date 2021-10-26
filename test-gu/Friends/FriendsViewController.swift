@@ -12,6 +12,8 @@ class FriendsViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var cellsForAnimate: [FriendsTableViewCell] = []
+    
     var friends = FriendsLoader.iNeedFriends()
     var lettersOfNames = [String]()
     // lazy чтобы можно было так объявить до доступности self
@@ -26,6 +28,12 @@ class FriendsViewController: UITableViewController {
         searchBar.delegate = self
         
         loadLetters()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        for cell in cellsForAnimate {
+            cell.friendImage.animate()
+        }
     }
     
     func loadLetters() {
@@ -63,6 +71,7 @@ class FriendsViewController: UITableViewController {
         // конфигурируем и возвращаем готовую ячейку
         cell.configure(name: name, image: UIImage(named: image)!)
         
+        cellsForAnimate.append(cell)
         return cell
     }
     

@@ -14,7 +14,7 @@ class loadingView: UIView {
     var color: UIColor = .gray
     var spacing: CGFloat = 15
     
-    func setupView() {
+    private func setupView() {
         
         // массив вьюшек с картинками
         var dots = [UIImageView]()

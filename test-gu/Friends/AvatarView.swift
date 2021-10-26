@@ -38,6 +38,23 @@ import UIKit
         }
     }
     
+    func animate() {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.5,
+                       options: [],
+                       animations: {
+            self.imageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        })
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.8,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 50,
+                       options: [],
+                       animations: {
+            self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
+    
     private func setupImage() {
         
         // Чтобы тень рисовалась и круглые картинки были
