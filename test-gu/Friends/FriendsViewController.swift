@@ -19,6 +19,25 @@ class FriendsViewController: UITableViewController {
     // lazy чтобы можно было так объявить до доступности self
     lazy var filteredData = friends
     
+    // Вынес сюда closure анимации, чтобы 2 раза не повторять код.
+    func searchBarAnimationClosure () -> () -> Void {
+        
+        return {
+            guard let scopeView = self.searchBar.searchTextField.leftView else { return }
+            guard let placeholderLabel = self.searchBar.textField?.value(forKey: "placeholderLabel") as? UILabel else { return }
+            
+            UIView.animate(withDuration: 0.3,
+                           animations: {
+                scopeView.frame = CGRect(x: self.searchBar.frame.width / 2 - 15,
+                                        y: scopeView.frame.origin.y,
+                                        width: scopeView.frame.width,
+                                        height: scopeView.frame.height)
+                placeholderLabel.frame.origin.x -= 20
+                self.searchBar.layoutSubviews()
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.showsVerticalScrollIndicator = false
@@ -27,14 +46,29 @@ class FriendsViewController: UITableViewController {
         //нужно объявить. что поиском будет заниматься вот этот searchBar
         searchBar.delegate = self
         
+        // наполянем имена заголовков секций
         loadLetters()
+        
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+
+        // первоначальная настройка searchBar-а
+        UIView.animate(withDuration: 0.2,
+                       animations: {
+            UIView.animate(withDuration: 0,
+                           animations: self.searchBarAnimationClosure() )
+        })
+    }
+    
+    // создаёт массив  буков для заголовков секций
     func loadLetters() {
         for user in friends {
             lettersOfNames.append(String(user.key))
         }
     }
+    
     
     // MARK: - Table view data source
     
@@ -170,4 +204,53 @@ extension FriendsViewController: UISearchBarDelegate {
         self.tableView.reloadData()
         
     }
+    
+    // отмена поиска (через кнопку Cancel)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true // показыть кнопку Cancel
+        
+        let cBtn = searchBar.value(forKey: "cancelButton") as! UIButton
+        cBtn.backgroundColor = .red
+        cBtn.setTitleColor(.white, for: .normal)
+        
+        UIView.animate(withDuration: 0.3,
+                       animations: {
+            
+            // двигаем кнопку cancel
+            cBtn.frame = CGRect(x: cBtn.frame.origin.x - 50,
+                                y: cBtn.frame.origin.y,
+                                width: cBtn.frame.width,
+                                height: cBtn.frame.height)
+
+                // анимируем запуск поиска. -1 чтобы пошла анимация, тогда лупа плавно откатывается О_о
+                self.searchBar.frame = CGRect(x: self.searchBar.frame.origin.x,
+                                              y: self.searchBar.frame.origin.y,
+                                              width: self.searchBar.frame.size.width - 1,
+                                              height: self.searchBar.frame.size.height)
+                
+                self.searchBar.layoutSubviews()
+            })
+
+        
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        // Анимацию возвращения в исходное положение после нажатия cancel пришлось положить в completion, а то что-то шло не так
+        UIView.animate(withDuration: 0.2,
+                       animations: {
+            searchBar.showsCancelButton = false // скрыть кнопку Cancel
+            searchBar.text = nil
+            searchBar.resignFirstResponder() // скрыть клавиатуру
+            
+        }, completion: { _ in
+            let closure = self.searchBarAnimationClosure()
+            closure()
+            })
+        
+        
+    }
+    
+    
 }
