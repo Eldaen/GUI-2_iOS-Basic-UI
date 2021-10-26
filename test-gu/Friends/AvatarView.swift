@@ -38,22 +38,32 @@ import UIKit
         }
     }
     
-    func animate() {
-        UIView.animate(withDuration: 0.3,
-                       delay: 0.5,
+    // заставляет аватарки сжиматься
+    @objc func animate() {
+        UIView.animate(withDuration: 0.2,
+                       delay: 0,
                        options: [],
                        animations: {
             self.imageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         })
         UIView.animate(withDuration: 0.5,
-                       delay: 0.8,
+                       delay: 0.2,
                        usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 50,
+                       initialSpringVelocity: 70,
                        options: [],
                        animations: {
             self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
     }
+    
+    // распознаём нажатие по аватарке
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer(target: self,
+                                                action: #selector(animate))
+        recognizer.numberOfTapsRequired = 1    // Количество нажатий, необходимое для распознавания
+        recognizer.numberOfTouchesRequired = 1 // Количество пальцев, которые должны коснуться экрана для распознавания
+        return recognizer
+    }()
     
     private func setupImage() {
         
@@ -101,11 +111,13 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupImage()
+        addGestureRecognizer(tapGestureRecognizer)
     }
     
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
         self.setupImage()
+        addGestureRecognizer(tapGestureRecognizer)
     }
     
 }

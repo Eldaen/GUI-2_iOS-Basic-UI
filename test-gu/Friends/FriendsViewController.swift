@@ -30,12 +30,6 @@ class FriendsViewController: UITableViewController {
         loadLetters()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        for cell in cellsForAnimate {
-            cell.friendImage.animate()
-        }
-    }
-    
     func loadLetters() {
         for user in friends {
             lettersOfNames.append(String(user.key))
