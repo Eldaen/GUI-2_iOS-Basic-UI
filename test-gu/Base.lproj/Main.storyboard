@@ -64,6 +64,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-XT-VVF" customClass="loadingView" customModule="test_gu" customModuleProvider="target">
+                                        <rect key="frame" x="174" y="712" width="80" height="24"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="7kp-zt-C91"/>
+                                            <constraint firstAttribute="height" constant="24" id="Mkc-dl-mXS"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
@@ -71,14 +79,16 @@
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="top" secondItem="XQU-K1-AGr" secondAttribute="top" constant="180" id="Avd-Ec-SXa"/>
                                     <constraint firstItem="WeK-tq-aBk" firstAttribute="top" secondItem="FLG-4O-eA6" secondAttribute="bottom" constant="123" id="Ay0-le-Tgy"/>
                                     <constraint firstAttribute="trailing" secondItem="FLG-4O-eA6" secondAttribute="trailing" constant="87" id="FHT-rg-vBa"/>
+                                    <constraint firstItem="99Y-XT-VVF" firstAttribute="top" secondItem="2Nd-zY-ut9" secondAttribute="bottom" constant="111" id="Got-wo-L0R"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="3fE-b3-KNk" secondAttribute="centerX" id="Goz-1R-Bng"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="XQU-K1-AGr" secondAttribute="centerX" id="Ll3-UM-AbC"/>
                                     <constraint firstItem="3fE-b3-KNk" firstAttribute="top" secondItem="QPI-Oq-QV1" secondAttribute="bottom" constant="40" id="NNv-4N-8O9"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="WeK-tq-aBk" secondAttribute="centerX" id="Rfw-gK-HVW"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Nd-zY-ut9" secondAttribute="bottom" constant="207" id="UhT-89-5gP"/>
+                                    <constraint firstAttribute="bottom" secondItem="99Y-XT-VVF" secondAttribute="bottom" constant="128" id="Xxe-Ar-Aou"/>
                                     <constraint firstItem="Up7-Cw-h0Y" firstAttribute="top" secondItem="3fE-b3-KNk" secondAttribute="bottom" constant="15" id="ZXV-Uf-CLd"/>
                                     <constraint firstItem="2Nd-zY-ut9" firstAttribute="top" secondItem="Up7-Cw-h0Y" secondAttribute="bottom" constant="50" id="Zcn-V6-XAC"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="2Nd-zY-ut9" secondAttribute="centerX" id="dcM-f9-JAs"/>
+                                    <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="99Y-XT-VVF" secondAttribute="centerX" id="gLv-wl-PxM"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="Up7-Cw-h0Y" secondAttribute="centerX" id="mph-0W-H0r"/>
                                     <constraint firstItem="FLG-4O-eA6" firstAttribute="centerX" secondItem="QPI-Oq-QV1" secondAttribute="centerX" id="wy1-Kt-AIq"/>
                                 </constraints>
@@ -97,6 +107,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8We-FF-Jjo"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="99Y-XT-VVF" id="ynK-9W-0sU"/>
                         <outlet property="loginInput" destination="QPI-Oq-QV1" id="UOS-6d-UMk"/>
                         <outlet property="passwordInput" destination="Up7-Cw-h0Y" id="zN5-K2-fzg"/>
                         <outlet property="scrollView" destination="XQU-K1-AGr" id="KQY-SV-eJM"/>
@@ -166,7 +177,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="645"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2mr-RS-eZi">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="2mr-RS-eZi">
                                             <rect key="frame" x="24" y="15" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="5tz-qf-hgn"/>
@@ -617,6 +628,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" width="128" height="128"/>
         <image name="heart" width="128" height="128"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person" catalog="system" width="128" height="117"/>
