@@ -20,49 +20,64 @@ class LikeControl: UIControl {
     
     
     private var stackView: UIStackView = UIStackView()
-    private var likesImage: UIImageView = UIImageView()
+    private var likesImageEmpty: UIImageView = UIImageView()
+    private var likesImageFill: UIImageView = UIImageView()
     private var likesLabel: UILabel = UILabel()
+    private var bgView: UIView = UIView()
     
     private func setupView() {
         
         // Чтобы вьюха была без фона и не мешала
         self.backgroundColor = .clear
         
-        // Тут нам надо добавить в self стэк вью, в стэк вью добавить UIImage view и Label
-        
         // Задали imageVue картинку heart с цветом red
-        let image = UIImage(systemName: "heart")
-        likesImage.image = image
-        likesImage.tintColor = .red
+        let imageEmpty = UIImage(systemName: "heart")
+        likesImageEmpty.frame = CGRect(x: 5, y: 1, width: 22, height: 18)
+        likesImageEmpty.image = imageEmpty
+        likesImageEmpty.tintColor = .red
+        
+        // Задали imageVue картинку heart.fill с цветом red
+        let imageFill = UIImage(systemName: "heart.fill")
+        likesImageFill.frame = CGRect(x: 5, y: 1, width: 22, height: 18)
+        likesImageFill.image = imageFill
+        likesImageFill.tintColor = .red
+            
         
         //Настраиваем Label
+        likesLabel.frame = CGRect(x: self.frame.size.width - 20, y: 4, width: 10, height: 12)
         likesLabel.text = String(likesCount)
         likesLabel.textAlignment = .center
         likesLabel.textColor = .red
         likesLabel.font = UIFont.systemFont(ofSize: 16)
         
-        //Настраиваем stackView
-        stackView.spacing = 0
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
-        stackView.frame = bounds
+        // нужно создать пустую вью подложку, чтобы на ней анимировались лайки, на сам лайк контрол нельзя
+        bgView.frame = bounds
+        bgView.addSubview(likesImageEmpty)
+        bgView.addSubview(likesLabel)
         
-        // Добавляем картинку и текст в стэк
-        stackView.addArrangedSubview(likesLabel)
-        stackView.addArrangedSubview(likesImage)
-        
-        self.addSubview(stackView)
+        self.addSubview(bgView)
         
     }
     
+    // У меняем вью с одной картинкой на вью с другой
     @objc func onClick() {
         if likesCount == 0 {
-            likesImage.image = UIImage(systemName: "heart.fill")
-            likesCount += 1
+            self.likesLabel.text = "1"
+            likesCount = 1
+            
+            UIView.transition(from: likesImageEmpty,
+                              to: likesImageFill,
+                              duration: 0.2,
+                              options: .transitionCrossDissolve)
+
         } else {
-            likesImage.image = UIImage(systemName: "heart")
-            likesCount -= 1
+            self.likesLabel.text = "0"
+            likesCount = 0
+            
+            UIView.transition(from: likesImageFill,
+                              to: likesImageEmpty,
+                              duration: 0.2,
+                              options: .transitionCrossDissolve)
         }
         
         likesLabel.text = String(likesCount)
