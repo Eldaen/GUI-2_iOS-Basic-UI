@@ -157,7 +157,7 @@ final class FullscreenViewController: UIViewController {
         switch recognizer.state {
         case .began:
             swipeToRight = UIViewPropertyAnimator(
-                duration: 0.5,
+                duration: 0.3,
                 curve: .easeInOut,
                 animations: {
                     UIView.animate(
@@ -172,12 +172,10 @@ final class FullscreenViewController: UIViewController {
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
-                        }, completion: { [unowned self] _ in
-                            self.startAnimate()
                         })
                 })
             swipeToLeft = UIViewPropertyAnimator(
-                duration: 0.5,
+                duration: 0.3,
                 curve: .easeInOut,
                 animations: {
                     UIView.animate(
@@ -192,8 +190,6 @@ final class FullscreenViewController: UIViewController {
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
-                        }, completion: { [unowned self] _ in
-                            self.startAnimate()
                         })
                 })
         case .changed:
@@ -207,10 +203,18 @@ final class FullscreenViewController: UIViewController {
         case .ended:
             
             let translationX = recognizer.translation(in: self.view).x
-            if translationX > 0 {
+            if translationX > 0 { // если жест это свайп направо
                 swipeToRight.fractionComplete = abs(translationX)/100
-                if swipeToRight.fractionComplete < 0.5 {
-                    swipeToRight.stopAnimation(true)
+                if swipeToRight.fractionComplete < 0.5 { // Если анимация не закончена на половину
+                    swipeToRight.pauseAnimation() // тормозим анимацию
+                    
+                    swipeToRight.addAnimations { // возвращаем картинку на место
+                        self.middleImageView.transform = .identity
+                        self.rightImageView.transform = .identity
+                        self.leftImageView.transform = .identity
+                    }
+                    
+                    swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0) // запускаем анимацию
                     return
                 }
                 
@@ -222,19 +226,32 @@ final class FullscreenViewController: UIViewController {
                 
                 swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                 
-            } else {
+            } else { // если налево, то тут тоже самое, но наоборот
                 swipeToLeft.fractionComplete = abs(translationX)/100
                 if swipeToLeft.fractionComplete < 0.5 {
-                    swipeToLeft.stopAnimation(true)
+                    swipeToLeft.pauseAnimation()
+                    
+                    swipeToLeft.addAnimations {
+                        self.middleImageView.transform = .identity
+                        self.rightImageView.transform = .identity
+                        self.leftImageView.transform = .identity
+                    }
+                    
+                    swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                    
                     return
                 }
                 
+                // меняем картинку как выбранную, только если жест окончен
                 self.selectedPhoto += 1
                 if self.selectedPhoto > self.photos.count - 1 {
                     self.selectedPhoto = 0
                 }
                 swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
             }
+            
+            // запускаем анимацию + выставление картинок по концу жеста в любом случае
+            self.startAnimate()
             
         default:
             return
