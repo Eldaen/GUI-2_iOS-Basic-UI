@@ -85,6 +85,7 @@ extension FriendProfileViewController: UICollectionViewDataSource, UICollectionV
         }
         
         vc.photos = friend.storedImages
+        vc.indexPath = indexPath.item
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -23,7 +23,7 @@ final class FullscreenViewController: UIViewController {
     private var middleImageView: UIImageView!
     private var rightImageView: UIImageView!
 
-    // UIViewPropertyAnimator
+    // UIViewPropertyAnimator, задаём доступные нам жесты
     var swipeToRight: UIViewPropertyAnimator!
     var swipeToLeft: UIViewPropertyAnimator!
     
@@ -32,6 +32,8 @@ final class FullscreenViewController: UIViewController {
         for photo in photos {
             let view = UIImageView()
             view.image = photo
+            view.contentMode = .scaleAspectFit
+            
             photoViews.append(view)
         }
     }
@@ -40,69 +42,85 @@ final class FullscreenViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        // создаём вьюхи с картинками
+        createImageViews()
+        selectedPhoto = indexPath
+        
+        // создадим вьюхи для отображения
+        leftImageView = UIImageView()
+        middleImageView = UIImageView()
+        rightImageView = UIImageView()
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        // регистрируем распознаватель жестов
         let gestPan = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         view.addGestureRecognizer(gestPan)
+        
+
+        
         setImage()
         startAnimate()
     }
+    
+    // чистим вьюхи, чтобы не накладывались
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        view.subviews.forEach({ $0.removeFromSuperview() })
+        view.subviews.forEach({ $0.removeFromSuperview() }) // проходится по всем сабвью этой вьюхи и удаляет её из родителя
     }
 
+    // конфигурируем отображение
     func setImage(){
         var indexPhotoLeft = selectedPhoto - 1
         let indexPhotoMid = selectedPhoto
         var indexPhotoRight = selectedPhoto + 1
 
+        // делаем круговую прокрутку, чтобы если левый индекс меньше 0, то его ставит последним
         if indexPhotoLeft < 0 {
-            indexPhotoLeft = photos.count - 1
+            indexPhotoLeft = photoViews.count - 1
 
         }
-        if indexPhotoRight > photos.count - 1 {
+        if indexPhotoRight > photoViews.count - 1 {
             indexPhotoRight = 0
         }
+        
+        // чистим вьюхи, т.к. мы постоянно добавляем новые
         view.subviews.forEach({ $0.removeFromSuperview() })
-        leftImageView = UIImageView()
-        middleImageView = UIImageView()
-        rightImageView = UIImageView()
-
-        leftImageView.contentMode = .scaleAspectFill
-        middleImageView.contentMode = .scaleAspectFill
-        rightImageView.contentMode = .scaleAspectFill
+        
+        // Присваиваем видимым картинкам нужные вьюхи
+        leftImageView = photoViews[indexPhotoLeft]
+        middleImageView = photoViews[indexPhotoMid]
+        rightImageView = photoViews[indexPhotoRight]
 
         view.addSubview(leftImageView)
         view.addSubview(middleImageView)
         view.addSubview(rightImageView)
 
+        // чистим констрейнты
         leftImageView.translatesAutoresizingMaskIntoConstraints = false
         middleImageView.translatesAutoresizingMaskIntoConstraints = false
         rightImageView.translatesAutoresizingMaskIntoConstraints = false
 
+        // пишем свои
         NSLayoutConstraint.activate([
             middleImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             middleImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            middleImageView.heightAnchor.constraint(equalTo: middleImageView.widthAnchor, multiplier: 4/3),
+            middleImageView.heightAnchor.constraint(equalTo: middleImageView.widthAnchor, multiplier: 1),
             middleImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 
-            leftImageView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            leftImageView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10), // выступает на 10 из-за левого края экрана
             leftImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             leftImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
             leftImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
 
-            rightImageView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            rightImageView.leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10), // выступает на 10 из-за правого края экрана
             rightImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             rightImageView.heightAnchor.constraint(equalTo: middleImageView.heightAnchor),
             rightImageView.widthAnchor.constraint(equalTo: middleImageView.widthAnchor),
         ])
-
-        leftImageView.backgroundColor = photos[indexPhotoLeft]
-        middleImageView.backgroundColor = photos[indexPhotoMid]
-        rightImageView.backgroundColor = photos[indexPhotoRight]
 
         middleImageView.layer.cornerRadius = 8
         rightImageView.layer.cornerRadius = 8
@@ -112,6 +130,7 @@ final class FullscreenViewController: UIViewController {
         rightImageView.clipsToBounds = true
         leftImageView.clipsToBounds = true
 
+        // изначально уменьшаем картинки, чтобы их потом можно было увеличить, СGAffineTransform имеет св-во .identity и можно вернуть к оригиналу
         let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
 
         self.middleImageView.transform = scale
@@ -120,6 +139,7 @@ final class FullscreenViewController: UIViewController {
 
     }
 
+    // тут мы сначала ставим нужные картинки и потом включаем анимацию увеличения до оригинала
     func startAnimate(){
         setImage()
         UIView.animate(
@@ -145,13 +165,14 @@ final class FullscreenViewController: UIViewController {
                         delay: 0,
                         options: [],
                         animations: { [unowned self] in
-                            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 40, y: 0)
-                            let transform = scale.concatenating(translation)
+                            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8) // уменьшаем
+                            let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 30, y: 0) // направо до края экрана - 30, у нас так констрэйнты заданы
+                            let transform = scale.concatenating(translation) // объединяем анимации в группу, чтобы задать сразу всем картинкам
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
                         }, completion: { [unowned self] _ in
+                            // по завершению, обновляем индекс выбранной фотки
                             self.selectedPhoto -= 1
                             if self.selectedPhoto < 0 {
                                 self.selectedPhoto = self.photos.count - 1
@@ -169,7 +190,7 @@ final class FullscreenViewController: UIViewController {
                         options: [],
                         animations: { [unowned self] in
                             let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                            let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 40, y: 0)
+                            let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 30, y: 0)
                             let transform = scale.concatenating(translation)
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
