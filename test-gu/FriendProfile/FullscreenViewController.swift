@@ -168,15 +168,11 @@ final class FullscreenViewController: UIViewController {
                             let scale = CGAffineTransform(scaleX: 0.8, y: 0.8) // уменьшаем
                             let translation = CGAffineTransform(translationX: self.view.bounds.maxX - 30, y: 0) // направо до края экрана - 30, у нас так констрэйнты заданы
                             let transform = scale.concatenating(translation) // объединяем анимации в группу, чтобы задать сразу всем картинкам
+                            
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
                         }, completion: { [unowned self] _ in
-                            // по завершению, обновляем индекс выбранной фотки
-                            self.selectedPhoto -= 1
-                            if self.selectedPhoto < 0 {
-                                self.selectedPhoto = self.photos.count - 1
-                            }
                             self.startAnimate()
                         })
                 })
@@ -192,28 +188,54 @@ final class FullscreenViewController: UIViewController {
                             let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
                             let translation = CGAffineTransform(translationX: -self.view.bounds.maxX + 30, y: 0)
                             let transform = scale.concatenating(translation)
+                            
                             self.middleImageView.transform = transform
                             self.rightImageView.transform = transform
                             self.leftImageView.transform = transform
                         }, completion: { [unowned self] _ in
-                            self.selectedPhoto += 1
-                            if self.selectedPhoto > self.photos.count - 1 {
-                                self.selectedPhoto = 0
-                            }
                             self.startAnimate()
                         })
                 })
         case .changed:
             let translationX = recognizer.translation(in: self.view).x
             if translationX > 0 {
-                swipeToRight.fractionComplete = abs(translationX)/100
+                swipeToRight.fractionComplete = abs(translationX)/100 // fractionComplete это про завершенность анимации от 0 до 1, можно плавно делать анимацию в зависимости от жеста
             } else {
                 swipeToLeft.fractionComplete = abs(translationX)/100
             }
 
         case .ended:
-            swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-            swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            
+            let translationX = recognizer.translation(in: self.view).x
+            if translationX > 0 {
+                swipeToRight.fractionComplete = abs(translationX)/100
+                if swipeToRight.fractionComplete < 0.5 {
+                    swipeToRight.stopAnimation(true)
+                    return
+                }
+                
+                // по завершению, обновляем индекс выбранной фотки
+                self.selectedPhoto -= 1
+                if self.selectedPhoto < 0 {
+                    self.selectedPhoto = self.photos.count - 1
+                }
+                
+                swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                
+            } else {
+                swipeToLeft.fractionComplete = abs(translationX)/100
+                if swipeToLeft.fractionComplete < 0.5 {
+                    swipeToLeft.stopAnimation(true)
+                    return
+                }
+                
+                self.selectedPhoto += 1
+                if self.selectedPhoto > self.photos.count - 1 {
+                    self.selectedPhoto = 0
+                }
+                swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            }
+            
         default:
             return
         }
