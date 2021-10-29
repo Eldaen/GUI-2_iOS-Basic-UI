@@ -139,8 +139,8 @@ class FriendsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is FriendCollectionController {
-            guard let vc = segue.destination as? FriendCollectionController else {
+        if segue.destination is FriendProfileViewController {
+            guard let vc = segue.destination as? FriendProfileViewController else {
                 return
             }
             guard let indexPathSection = tableView.indexPathForSelectedRow?.section else {

@@ -9,22 +9,22 @@
 class FriendsLoader {
     
     // Можно было бы сразу отсортировать тестовые данные как надо, но я что-то решил сделать сотировалки, чтобы потом не переделывать, если будет подгрузка
-    static var friends = [UserModel(name: "Vasia", image: "vasia"),
-                          UserModel(name: "Petia", image: "petia"),
-                          UserModel(name: "Dima", image: "dima"),
-                          UserModel(name: "Andrey", image: "misha"),
-                          UserModel(name: "Bob", image: "petia"),
-                          UserModel(name: "Coby", image: "dima"),
-                          UserModel(name: "Misha", image: "misha"),
-                          UserModel(name: "Nick", image: "petia"),
-                          UserModel(name: "Kane", image: "dima"),
-                          UserModel(name: "Stepan", image: "misha"),
-                          UserModel(name: "Kira", image: "petia"),
-                          UserModel(name: "James", image: "dima"),
-                          UserModel(name: "Walter", image: "misha"),
-                          UserModel(name: "Oprah", image: "petia"),
-                          UserModel(name: "Vitalik", image: "dima"),
-                          UserModel(name: "Harold", image: "misha"),
+    static var friends = [UserModel(name: "Vasia", image: "vasia", storedImages: ["vasia", "petia", "misha", "dima", "pepe-dunno", "pepe-like", "pepe-pirate", "pepe-yard-keeper"]),
+                          UserModel(name: "Petia", image: "petia", storedImages: []),
+                          UserModel(name: "Dima", image: "dima", storedImages: []),
+                          UserModel(name: "Andrey", image: "misha", storedImages: ["vasia", "petia", "misha", "dima", "pepe-dunno", "pepe-like", "pepe-pirate", "pepe-yard-keeper"]),
+                          UserModel(name: "Bob", image: "petia", storedImages: []),
+                          UserModel(name: "Coby", image: "dima", storedImages: []),
+                          UserModel(name: "Misha", image: "misha", storedImages: []),
+                          UserModel(name: "Nick", image: "petia", storedImages: []),
+                          UserModel(name: "Kane", image: "dima", storedImages: []),
+                          UserModel(name: "Stepan", image: "misha", storedImages: []),
+                          UserModel(name: "Kira", image: "petia", storedImages: []),
+                          UserModel(name: "James", image: "dima", storedImages: []),
+                          UserModel(name: "Walter", image: "misha", storedImages: []),
+                          UserModel(name: "Oprah", image: "petia", storedImages: []),
+                          UserModel(name: "Vitalik", image: "dima", storedImages: []),
+                          UserModel(name: "Harold", image: "misha", storedImages: []),
     ]
     
     static func iNeedFriends() -> [FriendsSection] {
