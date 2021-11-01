@@ -559,10 +559,33 @@
                     <view key="view" contentMode="scaleToFill" id="E0G-U2-9Ho">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMT-YW-I5a">
+                                <rect key="frame" x="0.0" y="88" width="428" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kYh-9W-1J0">
+                                <rect key="frame" x="20" y="839" width="388" height="4"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </progressView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="riW-Rr-DjA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LMT-YW-I5a" firstAttribute="leading" secondItem="riW-Rr-DjA" secondAttribute="leading" id="I2b-W9-5v1"/>
+                            <constraint firstItem="riW-Rr-DjA" firstAttribute="bottom" secondItem="LMT-YW-I5a" secondAttribute="bottom" constant="40" id="PXx-fv-4CJ"/>
+                            <constraint firstItem="riW-Rr-DjA" firstAttribute="trailing" secondItem="kYh-9W-1J0" secondAttribute="trailing" constant="20" id="X47-SH-Pmv"/>
+                            <constraint firstItem="kYh-9W-1J0" firstAttribute="leading" secondItem="riW-Rr-DjA" secondAttribute="leading" constant="20" id="faA-mX-FKE"/>
+                            <constraint firstItem="riW-Rr-DjA" firstAttribute="trailing" secondItem="LMT-YW-I5a" secondAttribute="trailing" id="oo3-Rz-u25"/>
+                            <constraint firstItem="LMT-YW-I5a" firstAttribute="top" secondItem="riW-Rr-DjA" secondAttribute="top" id="uGm-IZ-umm"/>
+                            <constraint firstItem="kYh-9W-1J0" firstAttribute="bottom" secondItem="riW-Rr-DjA" secondAttribute="bottom" id="w7N-rz-FBI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Галлерея" id="00h-ld-wuC"/>
+                    <connections>
+                        <outlet property="galleryView" destination="LMT-YW-I5a" id="TzE-3W-Het"/>
+                        <outlet property="progressView" destination="kYh-9W-1J0" id="Zth-96-RF9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd1-SE-z9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
