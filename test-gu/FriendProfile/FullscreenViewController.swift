@@ -273,5 +273,4 @@ final class FullscreenViewController: UIViewController {
             return
         }
     }
-
 }

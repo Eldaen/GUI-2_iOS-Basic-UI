@@ -35,12 +35,8 @@ final class FriendProfileViewController: UIViewController {
         
         // регистрируем новую ячейку
         collectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: identifier)
-        
-        
     }
-
-
-
+    
 }
 
 // MARK: UICollectionViewDataSource
@@ -86,6 +82,9 @@ extension FriendProfileViewController: UICollectionViewDataSource, UICollectionV
         
         vc.photos = friend.storedImages
         vc.indexPath = indexPath.item
+        
+        // переход на подробный просмотр
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
