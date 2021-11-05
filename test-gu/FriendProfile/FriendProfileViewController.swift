@@ -81,7 +81,7 @@ extension FriendProfileViewController: UICollectionViewDataSource, UICollectionV
         }
         
         vc.photos = friend.storedImages
-        vc.indexPath = indexPath.item
+        vc.selectedPhoto = indexPath.item
         
         // переход на подробный просмотр
         self.navigationController?.pushViewController(vc, animated: true)

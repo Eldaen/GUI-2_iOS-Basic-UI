@@ -13,13 +13,13 @@ final class FullscreenViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     lazy var progress = Progress(totalUnitCount: Int64(photoViews.count))
     // точно передаём номер фото, на которое кликнули
-    var indexPath: Int!
+    //var indexPath: Int!
     
     // Должно приходить от контроллера со всеми фото
     var photos: [UIImage] = []
     var photoViews:[UIImageView] = []
     
-    private var selectedPhoto = 0
+    var selectedPhoto = 0
     
     // Создаём три переменные, которые будут отвечать за то, что мы видим на экране и с чем взаимодействуем
     private var leftImageView: UIImageView!
@@ -52,7 +52,7 @@ final class FullscreenViewController: UIViewController {
         // создаём вьюхи с картинками
         createImageViews()
         
-        selectedPhoto = indexPath
+        //selectedPhoto = indexPath
         self.progress.completedUnitCount = Int64(selectedPhoto + 1)
         
         // создадим вьюхи для отображения

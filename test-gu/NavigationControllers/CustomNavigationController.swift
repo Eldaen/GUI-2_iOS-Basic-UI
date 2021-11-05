@@ -1,8 +1,8 @@
 //
 //  CustomNavigationController.swift
-//  LessonOneGeekBrains
+//  test-gu
 //
-//  Created by Олег Ганяхин on 01.11.2021.
+//  Created by Сизов Денис on 01.11.2021.
 //
 
 import UIKit
